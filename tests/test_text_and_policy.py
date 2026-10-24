@@ -176,8 +176,24 @@ def test_a_number_given_in_answer_to_the_question_needs_no_cue_word():
     assert policy.decide(300, full, "phone", CFG).action == "respond"
 
 
-def test_flush_waits_for_a_real_pause_inside_a_number():
+def test_flush_never_cuts_into_a_number_being_dictated():
     assert not policy.flush_due(150, "my number is zero one seven six", "phone", CFG)
-    assert policy.flush_due(700, "my number is zero one seven six", "phone", CFG)
+    assert not policy.flush_due(2000, "my number is zero one seven six", "phone", CFG)
     assert policy.flush_due(80, "i would like to book a haircut tomorrow", "open", CFG)
     assert not policy.flush_due(80, "", "open", CFG) and policy.flush_due(220, "", "open", CFG)
+
+
+def test_brain_reads_days_of_the_month_misspelt_services_and_bare_names():
+    import datetime as dt
+
+    from dcr.llm import brain
+
+    sat = dt.date(2026, 10, 24)
+    assert brain._date_from("could i come on the fourth", sat) == dt.date(2026, 11, 4)
+    assert brain._date_from("friday the twenty seventh", sat) == dt.date(2026, 11, 27)
+    assert brain._date_from("am vierten november", sat) == dt.date(2026, 11, 4)
+    assert brain._date_from("the 30th", sat) == dt.date(2026, 10, 30)
+    assert brain._service_from("ich möchte zum ferben kommen") == "colour"
+    assert brain._service_from("einen bart-schnitt bitte") == "beard"
+    assert brain._service_from("i heard you were open") is None
+    assert brain._bare_name("it sophie aldridge") == "Sophie Aldridge"

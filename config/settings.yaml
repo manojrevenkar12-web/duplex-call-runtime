@@ -15,7 +15,7 @@ stt:
   de: stt_whisper_base        # Whisper per pause; stt_whisper_tiny is faster and much worse
   flush_seconds: 0.4          # silence pushed through the recogniser at a pause, so its last word is out
   flush_after_ms: 60          # ... this far into the pause if the turn looks finished (turn/policy.flush_due)
-  flush_in_number_ms: 600     # ... but only after a real pause while a number is being dictated
+  flush_in_number_ms: 5000    # ... never while a number is being dictated (it damages the digits that follow)
 
 turn:
   # When the caller pauses, the agent asks: has the turn ended? (docs/adr/0002)

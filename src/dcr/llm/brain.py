@@ -88,8 +88,51 @@ def _contains(text: str, phrases: list[str]) -> bool:
     return any(f" {p} " in t or (len(p) > 5 and p in t) for p in phrases)
 
 
+ORDINALS_EN = {
+    "first": 1, "second": 2, "third": 3, "fourth": 4, "fifth": 5, "sixth": 6, "seventh": 7, "eighth": 8, "ninth": 9,
+    "tenth": 10, "eleventh": 11, "twelfth": 12, "thirteenth": 13, "fourteenth": 14, "fifteenth": 15, "sixteenth": 16,
+    "seventeenth": 17, "eighteenth": 18, "nineteenth": 19, "twentieth": 20, "thirtieth": 30,
+}  # fmt: skip
+ORDINALS_DE = {
+    "ersten": 1, "zweiten": 2, "dritten": 3, "vierten": 4, "fünften": 5, "sechsten": 6, "siebten": 7, "achten": 8,
+    "neunten": 9, "zehnten": 10, "elften": 11, "zwölften": 12, "dreizehnten": 13, "vierzehnten": 14, "fünfzehnten": 15,
+    "sechzehnten": 16, "siebzehnten": 17, "achtzehnten": 18, "neunzehnten": 19, "zwanzigsten": 20, "dreißigsten": 30,
+}  # fmt: skip
+
+
+def _day_of_month(ws: list[str]) -> int | None:
+    """ "the fourth", "the 4th", "twenty first", "am vierten", "einundzwanzigsten"."""
+    for i, w in enumerate(ws):
+        m = re.fullmatch(r"(\d{1,2})(?:st|nd|rd|th|\.)", w)
+        if m:
+            return int(m.group(1))
+        if w in ORDINALS_EN:
+            prev = ws[i - 1] if i else ""
+            tens = {"twenty": 20, "thirty": 30}.get(prev, 0)
+            return tens + ORDINALS_EN[w] if ORDINALS_EN[w] < 10 or not tens else ORDINALS_EN[w]
+        if w in ORDINALS_DE:
+            return ORDINALS_DE[w]
+        if w.endswith("ten") and "und" in w:  # einundzwanzigsten
+            ones, _, tens_w = w.removesuffix("sten").removesuffix("ten").partition("und")
+            from ..text.numbers import ONES_DE
+
+            tens_de = {"zwanzig": 20, "dreißig": 30}.get(tens_w)
+            if tens_de and ones in ONES_DE:
+                return tens_de + ONES_DE[ones]
+    return None
+
+
 def _date_from(text: str, today: dt.date) -> dt.date | None:
     ws = words(text)
+    dom = _day_of_month(ws)
+    if dom is not None and 1 <= dom <= 31:
+        # the next date with that day of the month; if a weekday is named too, the next one that matches both
+        wd = next((WEEKDAYS[w] for w in ws if w in WEEKDAYS), None)
+        d = today
+        for _ in range(400):
+            if d.day == dom and (wd is None or d.weekday() == wd):
+                return d
+            d += dt.timedelta(days=1)
     if "today" in ws or "heute" in ws:
         return today
     if "übermorgen" in ws or ("day" in ws and "after" in ws and "tomorrow" in ws):
@@ -107,9 +150,25 @@ def _service_from(text: str) -> str | None:
     for key, ws in SERVICE_WORDS.items():
         if _contains(text, ws):
             return key
+    # recognisers misspell: "ferben", "bart-schnitt", "colouring" as "coloring"
+    for w in words(text.replace("-", "")):
+        for key, ws in SERVICE_WORDS.items():
+            if len(w) >= 6 and any(len(p) >= 6 and " " not in p and _edits(w, p) <= 1 for p in ws):
+                return key
     if _contains(text, ["hair", "haare"]):
         return "haircut"  # "a hair could please": speech recognition splits "haircut" more often than not
     return None
+
+
+def _edits(a: str, b: str) -> int:
+    if abs(len(a) - len(b)) > 1:
+        return 2
+    d = list(range(len(b) + 1))
+    for i, x in enumerate(a, 1):
+        prev, d[0] = d[:], i
+        for j, y in enumerate(b, 1):
+            d[j] = min(prev[j] + 1, d[j - 1] + 1, prev[j - 1] + (x != y))
+    return d[-1]
 
 
 def _name_from(text: str) -> str | None:
@@ -202,7 +261,10 @@ def _numbers(text: str) -> list[str]:
 def _bare_name(text: str) -> str | None:
     ws = [w for w in words(text) if w not in FILLERS and w not in NOT_NAMES and not w.isdigit() and w not in YES and w not in NO]
     ws = [
-        w for w in ws if w not in {"my", "name", "is", "its", "it's", "mein", "ist", "ich", "heiße", "heisse", "sure", "yes", "okay", "ok"}
+        w
+        for w in ws
+        if w not in {"my", "name", "is", "its", "it's", "it", "this", "that", "mein", "ist", "ich", "bin", "hier", "heiße", "heisse"}
+        and w not in {"sure", "yes", "okay", "ok", "please", "bitte", "of", "course", "natürlich"}
     ]
     if 1 <= len(ws) <= 2:
         return " ".join(w.capitalize() for w in ws)
