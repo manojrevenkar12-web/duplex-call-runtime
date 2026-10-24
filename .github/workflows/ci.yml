@@ -40,6 +40,7 @@ jobs:
         with:
           path: data/models
           key: models-${{ hashFiles('config/assets.yaml') }}
+      - run: pip install pytest-github-actions-annotate-failures  # failures show up as annotations
       - run: dcr fetch --only runtime,sim && rm -rf data/models/downloads
       - run: pytest -q -m "models and not slow"
       - run: pytest -q -m "slow" -x

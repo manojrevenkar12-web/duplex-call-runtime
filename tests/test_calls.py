@@ -25,10 +25,11 @@ def test_a_booking_call_end_to_end() -> None:
     with run.stack() as st:
         tl, rec, _ = asyncio.run(run.call(st, sc))
     res = metrics.score(sc, tl, rec)
-    assert res["task"] is True, rec["outcome"]
-    assert res["false_stops"] == 0
-    assert len(res["response_ms"]) >= 5
-    assert all(r < 4000 for r in res["response_ms"])  # generous: CI runners are slow and shared
+    heard = [e["text"] for e in rec["events"] if e["kind"] == "end_of_turn"]
+    assert res["task"] is True, (rec["outcome"], heard)
+    assert res["false_stops"] == 0, res
+    assert len(res["response_ms"]) >= 5, res["response_ms"]
+    assert all(r < 4000 for r in res["response_ms"]), res["response_ms"]  # generous: CI runners are slow and shared
     kinds = {e["kind"] for e in rec["events"]}
     assert {"end_of_turn", "llm_first_token", "agent_audio_start", "tool"} <= kinds
 
