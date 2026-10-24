@@ -1,0 +1,48 @@
+# The LLM on our own GPU: vLLM's OpenAI-compatible server. The runtime treats it as one more
+# provider (config: llm.providers), hedged against a hosted API, so a slow or failed GPU node
+# costs a call 450 ms, not the call.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+  labels: {app: vllm}
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: vllm}
+  template:
+    metadata:
+      labels: {app: vllm}
+    spec:
+      containers:
+        - name: vllm
+          image: vllm/vllm-openai:v0.6.4
+          args:
+            - --model=Qwen/Qwen2.5-7B-Instruct
+            - --max-model-len=8192
+            - --gpu-memory-utilization=0.90
+            - --enable-prefix-caching          # every turn of a call shares the system prompt and history
+            - --enable-auto-tool-choice
+            - --tool-call-parser=hermes
+          ports: [{containerPort: 8000}]
+          env:
+            - name: HUGGING_FACE_HUB_TOKEN
+              valueFrom: {secretKeyRef: {name: hf-token, key: token, optional: true}}
+          resources:
+            limits: {nvidia.com/gpu: 1}
+          readinessProbe:
+            httpGet: {path: /health, port: 8000}
+            periodSeconds: 10
+            failureThreshold: 60
+          volumeMounts: [{name: cache, mountPath: /root/.cache/huggingface}]
+      volumes:
+        - name: cache
+          persistentVolumeClaim: {claimName: hf-cache}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vllm
+spec:
+  selector: {app: vllm}
+  ports: [{port: 8000, targetPort: 8000}]

@@ -1,0 +1,8 @@
+id: en-transfer
+lang: en
+today: 2026-10-26
+notes: The caller wants a person.
+lines:
+  - hi can i speak to a real person please
+expect:
+  transfer: true

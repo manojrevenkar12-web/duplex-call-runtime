@@ -1,0 +1,17 @@
+id: de-uebermorgen-halb-drei
+lang: de
+today: 2026-11-09          # Montag; "übermorgen" ist Mittwoch, 11. November
+voice: tts_de_thorsten
+notes: >
+  German haircut booking for "übermorgen" "um halb drei" (14:30, not 15:30 or 2:30). The caller
+  thinks mid-number with pauses. A good agent resolves the date to Wednesday, waits through the
+  pauses and books after "ja".
+lines:
+  - guten tag ich hätte gern einen termin für einen haarschnitt
+  - übermorgen um halb drei wenn das geht
+  - jonas vogelsang
+  - say: meine nummer ist null eins sieben eins vier acht drei neun zwei sechs fünf
+    pauses: [{after_word: 7, ms: 1300}, {after_word: 10, ms: 1100}]
+  - ja genau das passt
+expect:
+  booking: {service: haircut, date: 2026-11-11, time: "14:30", name: Jonas Vogelsang, phone: "01714839265"}

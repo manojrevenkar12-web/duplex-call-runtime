@@ -1,0 +1,13 @@
+id: en-noisy-street
+lang: en
+today: 2026-10-26
+notes: Calling from a busy street (babble noise at 18 dB SNR).
+line: {noise: babble, noise_snr_db: 18}
+lines:
+  - i'd like a colouring appointment tomorrow
+  - around one o clock
+  - the name is sarah klein
+  - zero one six zero nine eight seven six five four three
+  - yes please book it
+expect:
+  booking: {service: colour, date: 2026-10-27, time: "13:00", name: Sarah Klein, phone: "01609876543"}

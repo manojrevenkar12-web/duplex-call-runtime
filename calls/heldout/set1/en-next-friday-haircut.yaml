@@ -1,0 +1,17 @@
+id: en-next-friday-haircut
+lang: en
+today: 2026-11-07          # Saturday; "next friday" is Friday 13 November
+voice: tts_en_amy
+notes: >
+  Plain English haircut booking. The day is given as "next friday" on a Saturday (so the 13th)
+  and the time as "ten thirty"; the number is dictated in three groups. A good agent collects all
+  five details, reads them back once and books after the yes.
+lines:
+  - hi there i'd like to book a haircut please
+  - next friday if you have something in the morning maybe ten thirty
+  - it's daniel hartwell
+  - say: zero one seven six one two three four five zero eight
+    pauses: [{after_word: 4, ms: 600}, {after_word: 7, ms: 600}]
+  - yes that's all correct thanks
+expect:
+  booking: {service: haircut, date: 2026-11-13, time: "10:30", name: Daniel Hartwell, phone: "01761234508"}

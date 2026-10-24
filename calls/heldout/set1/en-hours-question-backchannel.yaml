@@ -1,0 +1,19 @@
+id: en-hours-question-backchannel
+lang: en
+today: 2026-11-09          # Monday
+voice: tts_en_amy
+notes: >
+  Question-only call. The caller asks for the week's opening hours and then which services the
+  salon offers, saying "mhm" and "yeah" while Mira explains. A good agent keeps talking through
+  the backchannels, answers both questions (Thursday late until eight, Saturday until two, closed
+  Sunday) and books nothing.
+lines:
+  - hi i just wanted to check your opening hours this week are you open late on any day
+  - backchannel: mhm
+    after_agent_ms: 2000
+  - okay and what do you do besides haircuts
+  - backchannel: yeah
+    after_agent_ms: 1500
+  - great that's all i needed thanks bye
+expect:
+  no_booking: true

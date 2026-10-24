@@ -1,0 +1,96 @@
+/* Design tokens. Components use these names only; no raw colours, sizes or timings elsewhere.
+   The palette is a signal trace: the caller's voice in teal (inbound), the agent's in violet
+   (outbound), turn decisions in amber, interruptions in crimson, on a cool paper ground. */
+:root {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --ground: #eef1f0;
+  --surface: #ffffff;
+  --surface-sunk: #e4e9e7;
+  --ink: #12202a;
+  --ink-muted: #56656e;
+  --ink-faint: #8a979d;
+  --rule: #d3dbd8;
+
+  --caller: #0e7c6b;
+  --caller-soft: #d5ece7;
+  --agent: #4c3aa8;
+  --agent-soft: #e2defa;
+  --decision: #a95e14;
+  --decision-soft: #f5e6d3;
+  --interrupt: #b4233c;
+  --interrupt-soft: #f6dde1;
+  --speculate: #2f6fb0;
+  --ok: #1d7a45;
+  --danger: #b4233c;
+  --danger-soft: #f6dde1;
+  --focus: #2f6fb0;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.8125rem;
+  --text-md: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-display: 2.75rem;
+  --leading: 1.5;
+  --leading-tight: 1.15;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --tracking-display: -0.02em;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --hairline: 1px;
+  --rule-weight: 3px;
+
+  --measure: 68ch;
+  --rail: 15rem;
+  --list-col: 22rem;
+  --lane-h: 2.25rem;
+  --marker-h: 1.5rem;
+  --timeline-pad: 2.5rem;
+  --waterfall-label: 11rem;
+  --skeleton-short: 60%;
+  --touch: 2.75rem;
+
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-draw: 900ms;
+  --dur-shimmer: 1.4s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground: #0f171c;
+    --surface: #16222a;
+    --surface-sunk: #1c2a33;
+    --ink: #e4ebee;
+    --ink-muted: #9fb0b8;
+    --ink-faint: #6d7f88;
+    --rule: #2a3a44;
+    --caller: #3cbfa6;
+    --caller-soft: #173a35;
+    --agent: #9d8cf0;
+    --agent-soft: #2a2550;
+    --decision: #e09b4f;
+    --decision-soft: #3a2b18;
+    --interrupt: #f0687d;
+    --interrupt-soft: #3d1b22;
+    --speculate: #6ea8e6;
+    --ok: #4cc283;
+    --danger: #f0687d;
+    --danger-soft: #3d1b22;
+    --focus: #6ea8e6;
+  }
+}

@@ -1,0 +1,13 @@
+id: de-book-basic
+lang: de
+today: 2026-10-26
+notes: Eine einfache Buchung auf Deutsch.
+lines:
+  - hallo ich hätte gern einen termin zum haare schneiden
+  - am mittwoch um zehn uhr
+  - mein name ist julia schmidt
+  - say: meine nummer ist null eins sieben sechs eins zwei drei vier fünf sechs sieben
+    pauses: [{after_word: 7, ms: 1100}]
+  - ja genau
+expect:
+  booking: {service: haircut, date: 2026-10-28, time: "10:00", name: Julia Schmidt, phone: "01761234567"}

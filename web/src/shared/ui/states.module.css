@@ -1,0 +1,78 @@
+.skeleton {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+}
+
+.bar {
+  display: block;
+  height: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, var(--surface-sunk), var(--rule), var(--surface-sunk));
+  background-size: 200% 100%;
+  animation: shimmer var(--dur-shimmer) linear infinite;
+}
+
+.bar[data-short] {
+  width: var(--skeleton-short);
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+  }
+}
+
+.error,
+.empty {
+  display: grid;
+  gap: var(--space-2);
+  max-width: var(--measure);
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+}
+
+.error {
+  background: var(--danger-soft);
+  border-left: var(--rule-weight) solid var(--danger);
+}
+
+.empty {
+  background: var(--surface-sunk);
+}
+
+.title {
+  font-weight: var(--weight-semibold);
+}
+
+.detail,
+.hint {
+  color: var(--ink-muted);
+  font-size: var(--text-sm);
+}
+
+.retry {
+  justify-self: start;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: var(--hairline) solid var(--danger);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--danger);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+
+.retry:hover {
+  background: var(--danger);
+  color: var(--surface);
+}

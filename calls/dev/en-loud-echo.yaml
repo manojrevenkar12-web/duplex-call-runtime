@@ -1,0 +1,13 @@
+id: en-loud-echo
+lang: en
+today: 2026-10-26
+notes: A bad handset returns the agent's voice only 18 dB down, 90 ms late. Without echo cancellation the agent hears itself.
+line: {echo_db: -18, echo_delay_ms: 90}
+lines:
+  - book me a haircut on monday please
+  - ten thirty
+  - it's mark weber
+  - zero one five one four four four three three three two
+  - yes that's right
+expect:
+  booking: {service: haircut, date: 2026-11-02, time: "10:30", name: Mark Weber, phone: "01514443332"}

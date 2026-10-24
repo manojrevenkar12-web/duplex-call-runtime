@@ -1,0 +1,14 @@
+id: en-interrupt-correction
+lang: en
+today: 2026-10-26
+notes: The caller cuts into the read-back to fix the day. The agent must stop at once and take the correction.
+lines:
+  - hello i need a haircut on wednesday
+  - at three thirty
+  - my name is lena fischer
+  - zero one seven zero five five five one two three four
+  - interrupt: no sorry not wednesday thursday please
+    after_agent_ms: 1800
+  - yes that's correct
+expect:
+  booking: {service: haircut, date: 2026-10-29, time: "15:30", name: Lena Fischer, phone: "01705551234"}

@@ -1,0 +1,19 @@
+id: de-am-dienstag-faerben-paare
+lang: de
+today: 2026-11-19          # Donnerstag; "am dienstag" ist Dienstag, 24. November
+voice: tts_de_thorsten
+notes: >
+  German colouring booking "am dienstag" (the coming Tuesday) "um elf uhr". The number is
+  dictated the German way in two-digit pairs (zweiundvierzig, achtzehn ...), and the caller says
+  "mhm" while Mira reads back. A good agent turns the pairs into twelve digits, keeps reading
+  through the backchannel and books after "ja".
+lines:
+  - hallo ich möchte gerne zum färben kommen
+  - am dienstag um elf uhr
+  - elif brandauer
+  - null eins sechs null zweiundvierzig achtzehn siebenundfünfzig dreißig
+  - backchannel: mhm
+    after_agent_ms: 2000
+  - ja das stimmt alles
+expect:
+  booking: {service: colour, date: 2026-11-24, time: "11:00", name: Elif Brandauer, phone: "016042185730"}

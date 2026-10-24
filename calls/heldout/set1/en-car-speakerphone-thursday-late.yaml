@@ -1,0 +1,19 @@
+id: en-car-speakerphone-thursday-late
+lang: en
+today: 2026-11-17          # Tuesday; "thursday" is 19 November
+voice: tts_en_ryan
+line: {echo_db: -14, echo_delay_ms: 110, noise: pink, noise_snr_db: 18}
+reaction_ms: 650
+notes: >
+  Caller on a car speakerphone: loud late echo of Mira's own voice plus road hiss. He books a
+  haircut on thursday at seven pm, inside the late Thursday hours. A good agent does not mistake
+  its own echo for the caller, still gets every detail and books 19:00.
+lines:
+  - hi i'm calling from the car can i book a haircut for thursday evening
+  - seven pm if that's possible
+  - tom okafor
+  - say: zero one five two zero double four eight three nine one
+    pauses: [{after_word: 5, ms: 1000}]
+  - yes that's it thanks
+expect:
+  booking: {service: haircut, date: 2026-11-19, time: "19:00", name: Tom Okafor, phone: "01520448391"}

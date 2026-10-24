@@ -1,0 +1,14 @@
+id: de-interrupt
+lang: de
+today: 2026-10-26
+notes: Die Anruferin unterbricht die Öffnungszeiten, um gleich zu buchen.
+lines:
+  - wie sind ihre öffnungszeiten
+  - interrupt: ich möchte einen termin zum färben am freitag
+    after_agent_ms: 2200
+  - um halb zehn
+  - auf den namen maria wagner
+  - null eins fünf zwei neun acht sieben sechs fünf vier drei
+  - ja bitte
+expect:
+  booking: {service: colour, date: 2026-10-30, time: "09:30", name: Maria Wagner, phone: "01529876543"}

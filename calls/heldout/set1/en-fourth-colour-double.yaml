@@ -1,0 +1,17 @@
+id: en-fourth-colour-double
+lang: en
+today: 2026-11-25          # Wednesday; "friday the fourth" is 4 December, the next month
+voice: tts_en_amy
+notes: >
+  Colouring booked for "friday the fourth", which falls in the following month, at "half past
+  two". The number uses "double" three times (double two, double eight, double four). A good agent
+  resolves the date to 4 December, expands the doubles to twelve digits and books after the yes.
+lines:
+  - hello i'd like to come in for a colour
+  - could i do friday the fourth at half past two
+  - my name is lena whitcombe
+  - say: the number is zero one five seven double two double eight double four one zero
+    pauses: [{after_word: 7, ms: 900}]
+  - yes perfect
+expect:
+  booking: {service: colour, date: 2026-12-04, time: "14:30", name: Lena Whitcombe, phone: "015722884410"}

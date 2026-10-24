@@ -1,0 +1,13 @@
+id: en-ask-for-person
+lang: en
+today: 2026-11-10          # Tuesday
+voice: tts_en_amy
+notes: >
+  Caller left an umbrella at the salon and wants to talk to someone there. She asks for a person
+  twice. A good agent puts her through without trying to book anything.
+lines:
+  - hi i was in yesterday and i think i left my umbrella there could i talk to someone at the salon
+  - yes please just put me through to a person
+  - thank you
+expect:
+  transfer: true

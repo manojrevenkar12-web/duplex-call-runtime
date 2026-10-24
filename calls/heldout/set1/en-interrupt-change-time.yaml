@@ -1,0 +1,18 @@
+id: en-interrupt-change-time
+lang: en
+today: 2026-11-16          # Monday; "on wednesday" is 18 November
+voice: tts_en_ryan
+notes: >
+  Caller books a haircut on wednesday at half past three, then cuts in while Mira is reading the
+  details back to move it to half past four. The number has "triple seven". A good agent stops
+  talking quickly, takes the new time, reads back again and books 16:30, not 15:30.
+lines:
+  - hey can i get a haircut on wednesday
+  - half past three please
+  - marcus feld
+  - zero one five one triple seven zero two three one six
+  - interrupt: oh wait sorry can we make that half past four instead
+    after_agent_ms: 2500
+  - yes that's right
+expect:
+  booking: {service: haircut, date: 2026-11-18, time: "16:30", name: Marcus Feld, phone: "015177702316"}

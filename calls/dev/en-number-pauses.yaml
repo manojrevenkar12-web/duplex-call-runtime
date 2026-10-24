@@ -1,0 +1,13 @@
+id: en-number-pauses
+lang: en
+today: 2026-10-26
+notes: The caller reads the number off a card and stops twice mid-number. The agent must wait.
+lines:
+  - can i book a beard trim on friday
+  - at half past ten please
+  - this is tom becker
+  - say: sure it's zero one five two one two three four five six seven
+    pauses: [{after_word: 6, ms: 1300}, {after_word: 9, ms: 1100}]
+  - yes
+expect:
+  booking: {service: beard, date: 2026-10-30, time: "10:30", name: Tom Becker, phone: "01521234567"}

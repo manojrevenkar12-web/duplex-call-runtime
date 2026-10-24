@@ -1,0 +1,74 @@
+.figure {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.legend,
+.markerKey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.markerKey {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.key::before,
+.markerKey li::before {
+  content: "";
+  display: inline-block;
+  width: var(--space-3);
+  height: var(--space-3);
+  margin-right: var(--space-2);
+  vertical-align: -1px;
+  border-radius: var(--radius-sm);
+}
+
+.key[data-kind="caller"]::before { background: var(--caller); }
+.key[data-kind="agent"]::before { background: var(--agent); }
+.key[data-kind="decision"]::before { background: var(--decision); transform: rotate(45deg) scale(0.8); }
+.key[data-kind="interrupt"]::before { background: var(--interrupt); width: 2px; }
+.markerKey li[data-kind="end_of_turn"]::before { background: var(--decision); transform: rotate(45deg) scale(0.8); }
+.markerKey li[data-kind="speculate"]::before { background: var(--speculate); border-radius: 50%; }
+.markerKey li[data-kind="taken_back"]::before { background: var(--ink-faint); border-radius: 50%; }
+.markerKey li[data-kind="hold"]::before { background: var(--interrupt); border-radius: 50%; }
+.markerKey li[data-kind="backchannel"]::before { background: var(--caller); border-radius: 50%; }
+.markerKey li[data-kind="hedged"]::before { background: var(--agent); border-radius: 50%; }
+
+.scroller {
+  overflow-x: auto;
+  background: var(--surface);
+  border: var(--hairline) solid var(--rule);
+  border-radius: var(--radius-md);
+}
+
+.grid { stroke: var(--rule); stroke-width: 1; }
+.tick { fill: var(--ink-faint); font-size: var(--text-xs); }
+.laneLabel { fill: var(--ink-faint); font-size: var(--text-xs); }
+.baseline { stroke: var(--rule); stroke-dasharray: 2 4; }
+.caller { fill: var(--caller); }
+.agent { fill: var(--agent); }
+.agent[data-cut] { fill: var(--agent); opacity: 0.55; }
+.held { stroke: none; }
+.hatch { stroke: var(--interrupt); stroke-width: 2; }
+.interrupt { stroke: var(--interrupt); stroke-width: 2; }
+
+.marker { cursor: default; }
+.marker[role="button"] { cursor: pointer; }
+.marker[data-kind="end_of_turn"] path { fill: var(--decision); stroke: var(--surface); stroke-width: 2; transition: transform var(--dur-fast) var(--ease-out); }
+.marker[data-kind="end_of_turn"]:hover path,
+.marker[data-on] path { transform: scale(1.35); }
+.marker[data-on] path { fill: var(--ink); }
+.marker[data-kind="speculate"] circle { fill: var(--speculate); }
+.marker[data-kind="taken_back"] circle { fill: var(--ink-faint); }
+.marker[data-kind="hold"] circle,
+.marker[data-kind="resume"] circle { fill: var(--interrupt); }
+.marker[data-kind="resume"] circle { fill: var(--surface); stroke: var(--interrupt); stroke-width: 2; }
+.marker[data-kind="backchannel"] circle { fill: var(--caller); }
+.marker[data-kind="hedged"] circle { fill: var(--agent); }

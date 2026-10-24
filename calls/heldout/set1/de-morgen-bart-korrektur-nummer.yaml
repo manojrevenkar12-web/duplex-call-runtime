@@ -1,0 +1,18 @@
+id: de-morgen-bart-korrektur-nummer
+lang: de
+today: 2026-11-26          # Donnerstag; "morgen" ist Freitag, 27. November
+voice: tts_de_thorsten
+notes: >
+  German beard trim "morgen um sechzehn uhr dreißig". While Mira reads the details back the caller
+  interrupts to say the last digit of his number is a three, not a two. A good agent stops
+  quickly, fixes only that digit, reads back again and books 01795530173.
+lines:
+  - guten tag ich bräuchte einen bartschnitt für morgen
+  - um sechzehn uhr dreißig
+  - stefan kühnel
+  - null eins sieben neun fünf fünf drei null eins sieben zwei
+  - interrupt: nein halt die letzte ziffer ist eine drei nicht zwei entschuldigung
+    after_agent_ms: 3500
+  - ja jetzt stimmt es
+expect:
+  booking: {service: beard, date: 2026-11-27, time: "16:30", name: Stefan Kühnel, phone: "01795530173"}

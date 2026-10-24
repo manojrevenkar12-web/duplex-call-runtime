@@ -1,0 +1,18 @@
+id: en-tomorrow-beard-card-pauses
+lang: en
+today: 2026-11-05          # Thursday; "tomorrow" is Friday 6 November
+voice: tts_en_gb_alan
+reaction_ms: 500
+notes: >
+  British caller books a beard trim "tomorrow" at "two pm" and reads his new mobile number off a
+  card with long pauses mid-number. A good agent waits through the silences instead of jumping in
+  or reading back a partial number, then books eleven digits after the yes.
+lines:
+  - hello yes i'd like a beard trim tomorrow if possible
+  - two pm would suit me
+  - oliver brandt
+  - say: it's a new number hang on zero one six two three nine zero seven seven one four
+    pauses: [{after_word: 6, ms: 1800}, {after_word: 10, ms: 1500}, {after_word: 13, ms: 1400}]
+  - yes that's right cheers
+expect:
+  booking: {service: beard, date: 2026-11-06, time: "14:00", name: Oliver Brandt, phone: "01623907714"}

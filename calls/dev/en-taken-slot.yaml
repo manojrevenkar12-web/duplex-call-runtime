@@ -1,0 +1,13 @@
+id: en-taken-slot
+lang: en
+today: 2026-10-26
+notes: Eleven is taken; the caller takes one of the times offered.
+calendar: {taken: ["2026-10-27 11:00"]}
+lines:
+  - i'd like a haircut tomorrow at eleven
+  - half past eleven then
+  - my name is paul hartmann
+  - zero one seven six one two three four five six seven
+  - yes
+expect:
+  booking: {service: haircut, date: 2026-10-27, time: "11:30", name: Paul Hartmann, phone: "01761234567"}

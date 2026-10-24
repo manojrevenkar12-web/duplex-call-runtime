@@ -1,0 +1,17 @@
+id: en-taken-saturday-slot
+lang: en
+today: 2026-11-12          # Thursday; "this saturday" is 14 November
+voice: tts_en_amy
+calendar: {taken: ["2026-11-14 10:00", "2026-11-14 10:30"]}
+notes: >
+  Caller wants a haircut this saturday at ten am, which is taken (as is 10:30). After hearing it
+  is booked she names eleven o'clock herself. A good agent says ten is taken, offers nearby free
+  times, accepts eleven, and books 11:00, never the taken slot.
+lines:
+  - hi could i book a haircut for this saturday at ten am
+  - oh that's a shame okay then eleven o'clock works for me
+  - it's sophie aldridge
+  - zero one seven zero nine four five six one two three
+  - yes that's correct
+expect:
+  booking: {service: haircut, date: 2026-11-14, time: "11:00", name: Sophie Aldridge, phone: "01709456123"}

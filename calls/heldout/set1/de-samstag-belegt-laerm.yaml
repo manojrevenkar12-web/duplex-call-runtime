@@ -1,0 +1,19 @@
+id: de-samstag-belegt-laerm
+lang: de
+today: 2026-11-25          # Mittwoch; "am samstag" ist Samstag, 28. November
+voice: tts_de_thorsten
+line: {echo_db: -24, echo_delay_ms: 60, noise: babble, noise_snr_db: 14}
+calendar: {taken: ["2026-11-28 10:00", "2026-11-28 10:30"]}
+notes: >
+  German caller on a busy street asks for a haircut on Saturday at ten, which is taken (10:30 too),
+  and then chooses "halb zwölf" herself. The number uses "zwo" for two and is said in groups. A
+  good agent copes with the babble, offers free times, books 11:30 and never a taken slot.
+lines:
+  - hallo ich hätte gern einen haarschnitt am samstag um zehn
+  - ach schade dann nehme ich halb zwölf
+  - anja pfeiffer
+  - say: null eins fünf neun drei drei sechs zwo acht null eins
+    pauses: [{after_word: 4, ms: 700}, {after_word: 7, ms: 700}]
+  - ja richtig danke
+expect:
+  booking: {service: haircut, date: 2026-11-28, time: "11:30", name: Anja Pfeiffer, phone: "01593362801"}

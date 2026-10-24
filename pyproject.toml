@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "duplex-call-runtime"
+version = "0.1.0"
+description = "A phone-call voice agent runtime: streaming STT, LLM and TTS over telephony audio, with measured turn-taking and latency"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "sherpa-onnx==1.13.8",
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "websockets>=13",
+  "httpx>=0.27",
+  "pyyaml>=6.0",
+  "prometheus-client>=0.20",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "ruff>=0.6", "mypy>=1.11", "types-PyYAML"]
+
+[project.scripts]
+dcr = "dcr.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+dcr = ["py.typed", "turn/eot_model.json", "turn/corpus/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = [
+  "models: needs the pinned speech models (`dcr fetch`)",
+  "slow: runs simulated calls in real time",
+]
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "SIM", "RUF", "ASYNC"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003", "E501"]  # the formatter wraps code; prose strings stay whole
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "B011"]
+"scripts/*" = ["S"]
+# seeded generators for reproducible simulations, not security
+"src/dcr/llm/sim_provider.py" = ["S311"]
+"src/dcr/agent/tools.py" = ["S311"]
+"src/dcr/turn/model.py" = ["S311"]
+"src/dcr/sim/*" = ["S311"]
+
+[tool.mypy]
+files = ["src/dcr"]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = true
+disallow_untyped_defs = true

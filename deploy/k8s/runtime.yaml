@@ -1,0 +1,65 @@
+# The call runtime. Speech (VAD, streaming STT, Whisper for German, TTS) runs in-process; on a
+# GPU node set DCR_MODEL_PROVIDER=cuda with an image built on the CUDA wheel of sherpa-onnx.
+# One English recogniser per pod decodes every call's audio in batches (serving.max_batch), so
+# a pod's capacity is set by that batch, not by one model copy per call.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dcr-runtime
+  labels: {app: dcr-runtime}
+spec:
+  replicas: 2
+  selector:
+    matchLabels: {app: dcr-runtime}
+  template:
+    metadata:
+      labels: {app: dcr-runtime}
+    spec:
+      terminationGracePeriodSeconds: 600   # let calls in progress finish (a call is one WebSocket)
+      containers:
+        - name: runtime
+          image: ghcr.io/manojrevenkar12-web/duplex-call-runtime:latest
+          ports: [{containerPort: 8000}]
+          env:
+            - {name: DCR_PUBLIC_URL, value: "https://voice.example"}
+            - {name: DCR_MODEL_THREADS, value: "2"}
+            - {name: DCR_MODEL_PROVIDER, value: "cpu"}
+            - name: TWILIO_AUTH_TOKEN
+              valueFrom: {secretKeyRef: {name: twilio, key: auth-token}}
+            - name: PRIMARY_LLM_API_KEY
+              valueFrom: {secretKeyRef: {name: llm, key: primary}}
+            - name: DCR_SETTINGS_OVERRIDE
+              value: |
+                llm:
+                  providers:
+                    - {name: hosted, base_url: "https://api.openai.com/v1", model: gpt-4o-mini, api_key_env: PRIMARY_LLM_API_KEY}
+                    - {name: own-gpu, base_url: "http://vllm:8000/v1", model: Qwen/Qwen2.5-7B-Instruct}
+          resources:
+            requests: {cpu: "2", memory: 3Gi}
+            limits: {memory: 4Gi}
+          readinessProbe:
+            httpGet: {path: /healthz, port: 8000}
+            periodSeconds: 5
+          lifecycle:
+            preStop:
+              exec: {command: ["sh", "-c", "sleep 20"]}   # leave the load balancer before closing
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dcr-runtime
+spec:
+  selector: {app: dcr-runtime}
+  ports: [{port: 80, targetPort: 8000}]
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: dcr-runtime
+spec:
+  scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: dcr-runtime}
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource: {name: cpu, target: {type: Utilization, averageUtilization: 60}}

@@ -1,0 +1,23 @@
+# Local stack: the runtime and two simulated LLM providers (no API key needed).
+# Point real providers at it instead with DCR_SETTINGS_OVERRIDE (see .env.example).
+services:
+  primary:
+    build: .
+    command: ["dcr", "sim-provider", "--host", "0.0.0.0", "--port", "8781", "--name", "primary", "--slow-rate", "0.08"]
+  secondary:
+    build: .
+    command: ["dcr", "sim-provider", "--host", "0.0.0.0", "--port", "8782", "--name", "secondary", "--ttft-ms", "430", "--slow-rate", "0.08"]
+  runtime:
+    build: .
+    ports: ["8000:8000"]
+    env_file: [{path: .env, required: false}]
+    environment:
+      DCR_SETTINGS_OVERRIDE: |
+        llm:
+          providers:
+            - {name: primary, base_url: "http://primary:8781/v1", api_key_env: PRIMARY_LLM_API_KEY}
+            - {name: secondary, base_url: "http://secondary:8782/v1", api_key_env: SECONDARY_LLM_API_KEY}
+    volumes: ["calls:/app/data"]
+    depends_on: [primary, secondary]
+volumes:
+  calls: {}

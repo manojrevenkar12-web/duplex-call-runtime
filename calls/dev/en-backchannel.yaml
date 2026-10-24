@@ -1,0 +1,11 @@
+id: en-backchannel
+lang: en
+today: 2026-10-26
+notes: The caller asks for opening hours and says "mhm" while the agent lists them. The agent must keep talking.
+lines:
+  - hi what are your opening hours
+  - backchannel: mhm
+    after_agent_ms: 2500
+  - okay thanks i'll call back
+expect:
+  no_booking: true

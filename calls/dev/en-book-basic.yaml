@@ -1,0 +1,13 @@
+id: en-book-basic
+lang: en
+today: 2026-10-26
+notes: A plain booking, said the way people say it, with a pause while reading out the number.
+lines:
+  - i'd like to book a haircut please
+  - tomorrow at ten o'clock
+  - my name is anna berger
+  - say: my number is zero one seven six three six seven nine five zero two five
+    pauses: [{after_word: 7, ms: 900}]
+  - yes that's right
+expect:
+  booking: {service: haircut, date: 2026-10-27, time: "10:00", name: Anna Berger, phone: "017636795025"}

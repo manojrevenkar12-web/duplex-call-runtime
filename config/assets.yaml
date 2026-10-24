@@ -1,0 +1,49 @@
+# Every model the runtime loads, pinned by URL and SHA-256 (sherpa-onnx 1.13.8 releases on GitHub).
+models:
+  silero_vad:
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
+    sha256: 9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6
+    licence: MIT
+  stt_en_nemo:
+    # NVIDIA NeMo streaming FastConformer transducer, 80 ms chunks, int8 (the default English STT)
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-streaming-fast-conformer-transducer-en-80ms-int8.tar.bz2
+    sha256: 7bd33a914e93370a1ba9c2066d9e841bdcad8613fa2a00537c1ae15d851a14d8
+    licence: CC-BY-4.0 (NVIDIA NeMo model)
+  stt_en_streaming:
+    # icefall streaming Zipformer, 20M parameters (the fast option: 7x cheaper, much less accurate on phone audio)
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-en-20M-2023-02-17.tar.bz2
+    sha256: 9c559283e8498d3fe95913c79ca1cb454bb26281ac2b102b41306c7d752765d9
+    licence: Apache-2.0
+  stt_whisper_base:
+    # OpenAI Whisper base, int8 (the German STT: per pause, not streaming). 36% WER on phone-band
+    # German against 49% for tiny, both after trimming silence (docs/MEASUREMENTS.md)
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-base.tar.bz2
+    sha256: 911b2083efd7c0dca2ac3b358b75222660dc09fb716d64fbfc417ba6c99ff3de
+    licence: MIT
+  stt_whisper_tiny:
+    # the small option for German: 1.4x faster, far less accurate
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-tiny.tar.bz2
+    sha256: c46116994e539aa165266d96b325252728429c12535eb9d8b6a2b10f129e66b1
+    licence: MIT
+  tts_en_lessac:
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-lessac-medium.tar.bz2
+    sha256: 9e3febfacf0abf4270172d2958bcec246032b7e88efc2720840cc80c93de334e
+    licence: see the MODEL_CARD in the archive
+  tts_en_amy:
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-amy-low.tar.bz2
+    sha256: c70f5284a09a7fd4ed203b39b2ff51cac1432b422b852eb647b481dade3cf639
+    licence: see the MODEL_CARD in the archive
+  tts_de_thorsten:
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten-medium.tar.bz2
+    sha256: 50487d9c95fdf2191f31d2588569381063ba1591dcd4c7d4bdd30f12b2191714
+    licence: see the MODEL_CARD in the archive
+  tts_en_ryan:
+    # a caller voice for the simulator (US English, male)
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ryan-medium.tar.bz2
+    sha256: c546af78b6395b4e7c4ce1ed899438b64426a362f5d4ec5fecd090ded9ad7505
+    licence: see the MODEL_CARD in the archive
+  tts_en_gb_alan:
+    # a caller voice for the simulator (British English, male)
+    url: https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_GB-alan-medium.tar.bz2
+    sha256: a48d4017da0f77668b27bed63fe6e04dd64c6397e1fadad4f460efb0ef7c9012
+    licence: see the MODEL_CARD in the archive

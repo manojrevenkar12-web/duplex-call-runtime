@@ -1,0 +1,29 @@
+.page {
+  display: grid;
+  grid-template-columns: var(--list-col) minmax(0, 1fr);
+  min-height: 100%;
+}
+
+.list {
+  border-right: var(--hairline) solid var(--rule);
+  overflow-y: auto;
+}
+
+.main {
+  padding: var(--space-6);
+  min-width: 0;
+}
+
+@media (max-width: 56rem) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .list {
+    border-right: 0;
+    border-bottom: var(--hairline) solid var(--rule);
+    max-height: 40vh;
+  }
+  .main {
+    padding: var(--space-5) var(--space-4);
+  }
+}

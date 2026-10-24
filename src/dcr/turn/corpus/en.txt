@@ -1,0 +1,110 @@
+# One complete caller turn per line, as speech recognition would write it (no punctuation needed).
+# Every word-boundary prefix of a line is a training example of an unfinished turn.
+hi i'd like to book a haircut
+hello i want to make an appointment for a haircut
+i'd like to get my hair cut tomorrow
+can i book a colouring for friday
+i need a beard trim on saturday morning
+do you have anything free on tuesday afternoon
+tomorrow please
+on wednesday
+friday would be great
+how about thursday
+next monday if possible
+the day after tomorrow
+at ten o'clock
+around half past two
+three thirty would work
+eleven fifteen please
+is four o'clock possible
+can i come in at nine
+any time after five
+early in the morning if you can
+my name is anna berger
+it's thomas becker
+the name is weber
+lukas meier
+sarah
+you can reach me on zero one seven six three six seven nine five zero two five
+my number is zero one five two three four five six seven eight nine
+it's zero three zero four four five six seven eight nine
+zero one six two one one two two three three four four
+yes that's right
+yes please
+yeah that's correct
+no that's wrong
+no the time is wrong
+actually make it four o'clock
+sorry i meant thursday not tuesday
+can you change it to friday
+what are your opening hours
+are you open on sundays
+how much does a haircut cost
+do you do colouring for short hair
+can i speak to a real person
+i'd like to talk to someone at the salon
+i want to cancel my appointment
+i need to move my booking to next week
+that's all thank you
+okay thanks bye
+perfect thank you very much
+great see you then
+no that's everything
+sorry could you repeat that
+what did you say
+i didn't catch that
+that works for me
+that's fine
+sure
+okay
+alright let's do that
+the earlier one please
+the later one
+the first option
+i'll take two thirty
+is there anything earlier
+nothing before noon please
+it's for my son actually
+it's for two people
+can i bring my daughter as well
+i'm calling about my appointment on friday
+i booked a haircut last week and i need to change it
+i'm running about ten minutes late
+where exactly are you located
+is there parking nearby
+do you take card payments
+how long does colouring take
+what's the earliest you have tomorrow
+i'd prefer the afternoon
+morning is better for me
+any day except monday
+let me check my calendar
+hold on a second
+just a moment please
+one second i'm looking for a pen
+good morning i'd like to book an appointment with mira
+can you book me in for a cut and a beard trim
+i want the same as last time
+my email is anna at example dot com
+my postcode is one zero three one nine
+the booking is under my husband's name
+it's spelled b e r g e r
+no not tuesday thursday
+yes the number is correct
+no the number ends in two five
+yes
+no
+yeah
+tomorrow
+tomorrow at ten
+friday at three
+monday morning
+at two
+ten thirty
+half past four
+anna
+mira schulz
+zero one seven six five five five one two three four
+correct
+yes book it
+no thanks
