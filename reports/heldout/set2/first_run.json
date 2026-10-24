@@ -1,0 +1,622 @@
+{
+ "set": "set2",
+ "scenarios": [
+  "de-babble-echo-bart-abend",
+  "de-dienstag-faerben-interrupt-day",
+  "de-sonntag-frage-kein-termin",
+  "de-uebermorgen-halb-drei",
+  "en-ask-for-stylist",
+  "en-car-noise-thursday-late",
+  "en-fourth-colour-double-triple",
+  "en-hours-services-backchannel",
+  "en-next-week-fri-haircut",
+  "en-readback-interrupt-time",
+  "en-sat-taken-slot",
+  "en-speakerphone-echo-beard"
+ ],
+ "summary": {
+  "full": {
+   "calls": 12,
+   "response_ms": {
+    "n": 50,
+    "p50": 1579.8,
+    "p90": 2435.3,
+    "mean": 1733.8
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 7,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 720.0,
+    "p90": 944.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/5",
+   "false_stops": 0,
+   "task_success": "5/12",
+   "wer": 0.336,
+   "hedged": 24,
+   "taken_back": 3
+  }
+ },
+ "calls": {
+  "full": [
+   {
+    "scenario": "de-babble-echo-bart-abend",
+    "lang": "de",
+    "response_ms": [
+     1889.9,
+     1429.2,
+     1425.9
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     24,
+     26
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 2.0,
+     "max": 36.5
+    },
+    "config": "full",
+    "call_id": "de-babble-echo-bart-abend-c1752a",
+    "seconds": 37.5
+   },
+   {
+    "scenario": "de-dienstag-faerben-interrupt-day",
+    "lang": "de",
+    "response_ms": [
+     2242.8,
+     1789.4,
+     1670.0,
+     2167.5,
+     2073.6,
+     1451.4
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "nein moment nicht dienstag mittwoch bitte",
+      "stop_ms": 440.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     23,
+     36
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 28.8
+    },
+    "config": "full",
+    "call_id": "de-dienstag-faerben-interrupt-day-335d3e",
+    "seconds": 55.9
+   },
+   {
+    "scenario": "de-sonntag-frage-kein-termin",
+    "lang": "de",
+    "response_ms": [
+     2080.1,
+     1976.0,
+     1592.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "ja",
+      "disrupted": false
+     },
+     {
+      "text": "genau",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     13,
+     27
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 2,
+     "resume": 2,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 3.3
+    },
+    "config": "full",
+    "call_id": "de-sonntag-frage-kein-termin-b3acca",
+    "seconds": 32.3
+   },
+   {
+    "scenario": "de-uebermorgen-halb-drei",
+    "lang": "de",
+    "response_ms": [
+     2283.4,
+     1794.9,
+     1652.9,
+     2101.6,
+     1734.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     13,
+     33
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 33.6
+    },
+    "config": "full",
+    "call_id": "de-uebermorgen-halb-drei-cea2a8",
+    "seconds": 58.0
+   },
+   {
+    "scenario": "en-ask-for-stylist",
+    "lang": "en",
+    "response_ms": [
+     1182.0,
+     1046.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     6,
+     33
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.3,
+     "max": 4.4
+    },
+    "config": "full",
+    "call_id": "en-ask-for-stylist-8a3778",
+    "seconds": 25.9
+   },
+   {
+    "scenario": "en-car-noise-thursday-late",
+    "lang": "en",
+    "response_ms": [
+     5258.0,
+     1386.2,
+     1267.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     30,
+     36
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 1,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 4.5
+    },
+    "config": "full",
+    "call_id": "en-car-noise-thursday-late-11e524",
+    "seconds": 36.7
+   },
+   {
+    "scenario": "en-fourth-colour-double-triple",
+    "lang": "en",
+    "response_ms": [
+     1042.4,
+     1708.0,
+     907.4,
+     1056.9,
+     971.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     7,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 4.5
+    },
+    "config": "full",
+    "call_id": "en-fourth-colour-double-triple-3b9b4f",
+    "seconds": 41.1
+   },
+   {
+    "scenario": "en-hours-services-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1150.2,
+     1272.2,
+     874.6
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     },
+     {
+      "text": "yeah",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     3,
+     34
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.6,
+     "max": 5.6
+    },
+    "config": "full",
+    "call_id": "en-hours-services-backchannel-30dba6",
+    "seconds": 33.0
+   },
+   {
+    "scenario": "en-next-week-fri-haircut",
+    "lang": "en",
+    "response_ms": [
+     2197.3,
+     1406.6,
+     921.8,
+     3371.2,
+     966.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     8,
+     43
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 4,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.2,
+     "max": 5.1
+    },
+    "config": "full",
+    "call_id": "en-next-week-fri-haircut-343a73",
+    "seconds": 48.4
+   },
+   {
+    "scenario": "en-readback-interrupt-time",
+    "lang": "en",
+    "response_ms": [
+     2478.4,
+     1438.8,
+     3485.4,
+     1851.9,
+     1424.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "oh wait no sorry not three can we do half past four instead",
+      "stop_ms": 1000.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "phone"
+    ],
+    "wer": [
+     8,
+     43
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 5,
+     "speculation_cancelled": 1,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 5.0
+    },
+    "config": "full",
+    "call_id": "en-readback-interrupt-time-f929f8",
+    "seconds": 57.9
+   },
+   {
+    "scenario": "en-sat-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1794.8,
+     2549.0,
+     1344.6,
+     1716.8,
+     1567.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     0,
+     39
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.8,
+     "max": 24.6
+    },
+    "config": "full",
+    "call_id": "en-sat-taken-slot-b1fef2",
+    "seconds": 60.4
+   },
+   {
+    "scenario": "en-speakerphone-echo-beard",
+    "lang": "en",
+    "response_ms": [
+     1168.9,
+     1481.5,
+     1158.9,
+     1456.9,
+     2430.5
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "name"
+    ],
+    "wer": [
+     5,
+     30
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.4,
+     "max": 33.5
+    },
+    "config": "full",
+    "call_id": "en-speakerphone-echo-beard-c1fdad",
+    "seconds": 50.6
+   }
+  ]
+ },
+ "settings": {
+  "turn": {
+   "speculate_after_ms": 120,
+   "evaluate_after_ms": 200,
+   "respond_probability": 0.55,
+   "speculate_probability": 0.35,
+   "max_pause_ms": 1400,
+   "entity_max_pause_ms": 2600,
+   "silence_only_ms": 800
+  },
+  "barge_in": {
+   "min_speech_ms": 300,
+   "backchannel_max_ms": 900,
+   "resume_after_ms": 700,
+   "hold": "duck",
+   "duck_db": 14
+  }
+ },
+ "first_run": true,
+ "recorded_at": "2026-10-24T22:46:51+00:00",
+ "commit": "09070a936b57fcb71057e88cdefcdf7f0e87a011"
+}
