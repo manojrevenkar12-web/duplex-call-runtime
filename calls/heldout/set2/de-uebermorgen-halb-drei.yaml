@@ -1,0 +1,15 @@
+id: de-uebermorgen-halb-drei
+lang: de
+today: 2026-11-03          # Dienstag; "übermorgen" ist Donnerstag 2026-11-05
+voice: tts_de_thorsten
+notes: German haircut booking for "übermorgen" "um halb drei" (14:30, not 15:30 or 2:30); the number is dictated the German way in two-digit groups ("achtunddreißig vierzehn sechsundsiebzig") with a pause. A good agent turns the groups into digits and books Thursday 5 Nov at 14:30.
+reaction_ms: 400
+lines:
+  - guten tag ich hätte gern einen haarschnitt für übermorgen
+  - um halb drei wenn das geht
+  - lukas brenner
+  - say: meine nummer ist null eins fünf zwei achtunddreißig vierzehn sechsundsiebzig null neun
+    pauses: [{after_word: 7, ms: 1000}]
+  - ja genau das stimmt
+expect:
+  booking: {service: haircut, date: 2026-11-05, time: "14:30", name: Lukas Brenner, phone: "015238147609"}

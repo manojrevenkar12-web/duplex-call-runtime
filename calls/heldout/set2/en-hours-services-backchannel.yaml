@@ -1,0 +1,16 @@
+id: en-hours-services-backchannel
+lang: en
+today: 2026-11-12          # Thursday
+voice: tts_en_gb_alan
+notes: A caller who only asks about opening hours and services and says "mhm" and "yeah" over Mira's long answers. A good agent keeps talking through the backchannels, gives the hours (including late Thursday and short Saturday) and the three services, and books nothing.
+reaction_ms: 500
+lines:
+  - hello there what are your opening hours during the week
+  - backchannel: mhm
+    after_agent_ms: 2000
+  - and what sort of things do you do just cuts or colour as well
+  - backchannel: yeah
+    after_agent_ms: 1500
+  - lovely that's all i needed thanks very much bye
+expect:
+  no_booking: true

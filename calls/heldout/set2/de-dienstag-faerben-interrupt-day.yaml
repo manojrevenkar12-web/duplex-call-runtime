@@ -1,0 +1,17 @@
+id: de-dienstag-faerben-interrupt-day
+lang: de
+today: 2026-11-12          # Donnerstag; "am dienstag" ist Dienstag 2026-11-17, "mittwoch" ist 2026-11-18
+voice: tts_de_thorsten
+notes: German colouring booking "am dienstag um elf"; during the read-back the caller interrupts to change the day to Wednesday. A good agent stops quickly, moves the booking to Wednesday 18 Nov at 11:00, reads back again and books only then; nothing may be booked on Tuesday.
+reaction_ms: 350
+lines:
+  - hallo ich möchte gern einen termin zum färben am dienstag
+  - um elf uhr
+  - sabine hartl
+  - say: null eins sieben acht neun zwei null vier sechs eins fünf
+    pauses: [{after_word: 4, ms: 900}]
+  - interrupt: nein moment nicht dienstag mittwoch bitte
+    after_agent_ms: 2000
+  - ja so passt das
+expect:
+  booking: {service: colour, date: 2026-11-18, time: "11:00", name: Sabine Hartl, phone: "01789204615"}

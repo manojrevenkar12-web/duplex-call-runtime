@@ -1,0 +1,10 @@
+id: en-ask-for-stylist
+lang: en
+today: 2026-11-06          # Friday
+reaction_ms: 400
+notes: The caller wants to talk to a person about the colour they had done last week. A good agent does not try to book anything and puts the caller through to someone at the salon.
+lines:
+  - hi um could i speak to someone at the salon please i had my colour done last week and i just wanted to ask the stylist about it
+  - yes please put me through
+expect:
+  transfer: true

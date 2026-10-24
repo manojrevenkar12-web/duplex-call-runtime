@@ -1,0 +1,17 @@
+id: en-fourth-colour-double-triple
+lang: en
+today: 2026-11-30          # Monday; "the fourth" is Friday 2026-12-04
+voice: tts_en_ryan
+notes: Colouring booked "on the fourth" at "two pm", with a number using "double four" and "triple one" and a short pause; the caller says "mhm" over Mira's read-back. A good agent expands double/triple correctly, keeps reading back through the backchannel, and books Friday 4 Dec at 14:00.
+reaction_ms: 300
+lines:
+  - hey could i book a colouring on the fourth
+  - two pm would be ideal
+  - the name's marcus bell
+  - say: my number is zero one seven six double four nine eight triple one two
+    pauses: [{after_word: 7, ms: 800}]
+  - backchannel: mhm
+    after_agent_ms: 2000
+  - yep that's right
+expect:
+  booking: {service: colour, date: 2026-12-04, time: "14:00", name: Marcus Bell, phone: "017644981112"}

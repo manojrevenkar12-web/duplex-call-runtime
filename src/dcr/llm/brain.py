@@ -139,10 +139,13 @@ def _date_from(text: str, today: dt.date) -> dt.date | None:
         return today + dt.timedelta(days=2)
     if "tomorrow" in ws or "morgen" in ws:
         return today + dt.timedelta(days=1)
-    for w in ws:
-        if w in WEEKDAYS:
-            ahead = (WEEKDAYS[w] - today.weekday()) % 7 or 7
-            return today + dt.timedelta(days=ahead)
+    # "not wednesday, thursday please": the day that is not negated, and the last one said
+    days = [(i, w) for i, w in enumerate(ws) if w in WEEKDAYS]
+    kept = [w for i, w in days if not (i and ws[i - 1] in ("not", "nicht", "kein", "no"))]
+    if kept or days:
+        w = (kept or [w for _, w in days])[-1]
+        ahead = (WEEKDAYS[w] - today.weekday()) % 7 or 7
+        return today + dt.timedelta(days=ahead)
     return None
 
 

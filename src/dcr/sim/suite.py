@@ -146,7 +146,8 @@ def _failures(doc: dict[str, Any]) -> str:
     for name, rs in doc["calls"].items():
         for r in rs:
             if r["task"] is False:
-                lines.append(f"- `{r['scenario']}` ({name}): false stops {r['false_stops']}, WER {r['wer'][0]}/{r['wer'][1]} words")
+                wrong = ", ".join(r.get("task_wrong") or []) or "?"
+                lines.append(f"- `{r['scenario']}` ({name}): wrong {wrong}; transcript WER {r['wer'][0]}/{r['wer'][1]} words")
     if len(lines) == 3:
         lines.append("None.")
     return "\n".join(lines) + "\n"
@@ -192,12 +193,13 @@ def markdown(doc: dict[str, Any]) -> str:
         "",
         "## Per call (full configuration)",
         "",
-        "| Scenario | Task | Replies (ms) | Pause takeovers | Interrupt stop (ms) | False stops |",
-        "|---|---|---|---|---|---:|",
+        "| Scenario | Task | Wrong | Replies (ms) | Pause takeovers | Interrupt stop (ms) | False stops |",
+        "|---|---|---|---|---|---|---:|",
     ]
     for r in doc["calls"].get("full", []):
         lines.append(
-            f"| {r['scenario']} | {r['task']} | {', '.join(str(int(x)) for x in r['response_ms'])} | {r['pause_takeovers']}/{r['pause_lines']} | "
+            f"| {r['scenario']} | {r['task']} | {', '.join(r.get('task_wrong') or []) or '-'} | "
+            f"{', '.join(str(int(x)) for x in r['response_ms'])} | {r['pause_takeovers']}/{r['pause_lines']} | "
             f"{', '.join(str(i['stop_ms']) for i in r['interrupts']) or '-'} | {r['false_stops']} |"
         )
     return "\n".join(lines) + "\n"

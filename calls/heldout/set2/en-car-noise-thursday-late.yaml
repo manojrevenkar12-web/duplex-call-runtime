@@ -1,0 +1,15 @@
+id: en-car-noise-thursday-late
+lang: en
+today: 2026-11-24          # Tuesday; "thursday" is Thursday 2026-11-26
+voice: tts_en_gb_alan
+notes: A British caller in a car (steady pink noise at 14 dB SNR) books a haircut on Thursday at "half six", meaning 18:30, which is inside Thursday's late opening; the number uses "oh" for zero and "double three". A good agent hears through the noise, reads half six as 18:30 and books it.
+line: {echo_db: -28, echo_delay_ms: 50, noise: pink, noise_snr_db: 14}
+reaction_ms: 400
+lines:
+  - hiya can i book a haircut for thursday you're open late thursdays aren't you
+  - half six please
+  - graham pike
+  - oh one seven one two oh nine double three six four
+  - that's right yes
+expect:
+  booking: {service: haircut, date: 2026-11-26, time: "18:30", name: Graham Pike, phone: "01712093364"}

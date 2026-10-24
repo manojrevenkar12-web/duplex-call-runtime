@@ -1,0 +1,16 @@
+id: de-babble-echo-bart-abend
+lang: de
+today: 2026-11-30          # Montag; "donnerstag" ist Donnerstag 2026-12-03
+voice: tts_de_thorsten
+notes: German beard trim booked from a busy street (babble at 15 dB SNR) on a handset with strong echo; the time "um neunzehn uhr" is only possible because Thursday is open until 20:00. A good agent copes with noise and echo together and books Thursday 3 Dec at 19:00.
+line: {echo_db: -16, echo_delay_ms: 90, noise: babble, noise_snr_db: 15}
+reaction_ms: 500
+lines:
+  - hallo ich bräuchte einen bartschnitt am donnerstag abends
+  - um neunzehn uhr
+  - jonas weidner
+  - say: null eins sechs drei zwei zwei fünf eins neun null sieben
+    pauses: [{after_word: 4, ms: 700}, {after_word: 8, ms: 700}]
+  - ja richtig
+expect:
+  booking: {service: beard, date: 2026-12-03, time: "19:00", name: Jonas Weidner, phone: "01632251907"}

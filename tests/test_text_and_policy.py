@@ -197,3 +197,4 @@ def test_brain_reads_days_of_the_month_misspelt_services_and_bare_names():
     assert brain._service_from("einen bart-schnitt bitte") == "beard"
     assert brain._service_from("i heard you were open") is None
     assert brain._bare_name("it sophie aldridge") == "Sophie Aldridge"
+    assert brain._date_from("no sorry not wednesday thursday please", dt.date(2026, 10, 26)) == dt.date(2026, 10, 29)

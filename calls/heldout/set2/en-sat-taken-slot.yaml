@@ -1,0 +1,15 @@
+id: en-sat-taken-slot
+lang: en
+today: 2026-11-19          # Thursday; "this saturday" is Saturday 2026-11-21
+notes: The caller asks for this Saturday at eleven, which is already taken; after Mira offers nearby free times the caller takes eleven thirty. The number is said in small groups. A good agent says 11:00 is taken, offers nearby times, and books Saturday 21 Nov at 11:30, never 11:00.
+calendar: {taken: ["2026-11-21 11:00"]}
+reaction_ms: 350
+lines:
+  - hi do you have anything for a haircut this saturday at eleven
+  - oh okay eleven thirty works for me then
+  - it's lucy fenwick
+  - say: zero one five nine zero three one seven seven two four
+    pauses: [{after_word: 5, ms: 600}, {after_word: 7, ms: 600}, {after_word: 9, ms: 600}]
+  - yes please book it
+expect:
+  booking: {service: haircut, date: 2026-11-21, time: "11:30", name: Lucy Fenwick, phone: "01590317724"}

@@ -1,0 +1,16 @@
+id: de-sonntag-frage-kein-termin
+lang: de
+today: 2026-11-13          # Freitag
+voice: tts_de_thorsten
+notes: A German caller asks whether the salon is open on Sunday and until when on Saturday, says "ja" and "genau" over the answers, then decides to call back later. A good agent says Sunday is closed and Saturday is 9 to 14, keeps talking through the backchannels, and books nothing.
+reaction_ms: 450
+lines:
+  - hallo haben sie am sonntag eigentlich offen
+  - backchannel: ja
+    after_agent_ms: 1500
+  - und am samstag bis wann haben sie da offen
+  - backchannel: genau
+    after_agent_ms: 1500
+  - ach so na gut dann melde ich mich nochmal danke tschüss
+expect:
+  no_booking: true

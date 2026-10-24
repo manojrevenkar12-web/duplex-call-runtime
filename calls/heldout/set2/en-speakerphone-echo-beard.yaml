@@ -1,0 +1,16 @@
+id: en-speakerphone-echo-beard
+lang: en
+today: 2026-11-25          # Wednesday; "monday" is Monday 2026-11-30
+voice: tts_en_ryan
+notes: Beard trim booked from a speakerphone with loud, late echo of Mira's own voice; the caller hesitates with "um" and pauses while reading the number. A good agent does not take its own echo for the caller, waits through the pauses, and books Monday 30 Nov at 11:00.
+line: {echo_db: -13, echo_delay_ms: 110, noise: none, noise_snr_db: 35}
+reaction_ms: 450
+lines:
+  - hi yeah i'm after a beard trim on monday
+  - eleven in the morning
+  - daniel okoro
+  - say: um zero one six zero five five two one eight seven three
+    pauses: [{after_word: 5, ms: 1000}, {after_word: 9, ms: 900}]
+  - yes perfect
+expect:
+  booking: {service: beard, date: 2026-11-30, time: "11:00", name: Daniel Okoro, phone: "01605521873"}

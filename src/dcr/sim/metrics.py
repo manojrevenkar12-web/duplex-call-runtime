@@ -89,6 +89,30 @@ def task_ok(sc: Scenario, outcome: dict[str, Any]) -> bool | None:
     return None
 
 
+def task_diff(sc: Scenario, outcome: dict[str, Any]) -> list[str]:
+    """What a failed call got wrong: the booking fields that differ, or what happened instead."""
+    exp = sc.expect
+    bookings = outcome.get("bookings") or []
+    if "booking" in exp:
+        if not bookings:
+            return ["no booking"]
+        if len(bookings) > 1:
+            return [f"{len(bookings)} bookings"]
+        b, e = bookings[0], exp["booking"]
+        digits = "".join(c for c in str(b.get("phone", "")) if c.isdigit())
+        wrong = [k for k in ("service", "time") if str(b[k]) != str(e[k])]
+        if str(b["date"]) != str(e["date"]):
+            wrong.append("date")
+        if not _name_close(b["name"], str(e["name"])):
+            wrong.append("name")
+        if digits != str(e["phone"]):
+            wrong.append("phone")
+        return wrong
+    if exp.get("transfer"):
+        return [] if outcome.get("transferred") and not bookings else ["not transferred"]
+    return ["booked"] if bookings else []
+
+
 def _name_close(got: str, want: str) -> bool:
     """Names are spelled by the recogniser ("Burger" for "Berger"): accept one edit per word."""
     g, w = got.lower().split(), want.lower().split()
@@ -129,6 +153,7 @@ def score(sc: Scenario, tl: Timeline, rec: dict[str, Any]) -> dict[str, Any]:
     spoken = [(ln["start"] - 200, ln["end"] + 1500) for ln in lines]
     out["false_stops"] = sum(1 for c in tl.clears if not any(a <= c <= b for a, b in spoken))
     out["task"] = task_ok(sc, rec.get("outcome") or {})
+    out["task_wrong"] = task_diff(sc, rec.get("outcome") or {}) if out["task"] is False else []
     said = " ".join(ln["text"] for ln in lines if ln["kind"] != "backchannel")
     heard = " ".join(ev["text"] for ev in rec["events"] if ev["kind"] == "end_of_turn" and not _taken_back_after(rec["events"], ev))
     errs, n = wer(said, heard)

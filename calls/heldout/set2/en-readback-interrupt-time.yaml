@@ -1,0 +1,14 @@
+id: en-readback-interrupt-time
+lang: en
+today: 2026-11-17          # Tuesday; "tomorrow" is Wednesday 2026-11-18
+notes: The caller asks for three o'clock tomorrow, then interrupts Mira's read-back to change it to half past four. A good agent stops talking quickly, changes the time to 16:30, reads back again and books only after the second yes; nothing may be booked at 15:00.
+reaction_ms: 350
+lines:
+  - hi i need a haircut tomorrow around three o'clock
+  - helen marsh
+  - it's zero one five one six two seven three nine four eight
+  - interrupt: oh wait no sorry not three can we do half past four instead
+    after_agent_ms: 2500
+  - yes that's it thanks
+expect:
+  booking: {service: haircut, date: 2026-11-18, time: "16:30", name: Helen Marsh, phone: "01516273948"}

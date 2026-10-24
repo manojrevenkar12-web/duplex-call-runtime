@@ -1,0 +1,14 @@
+id: en-next-week-fri-haircut
+lang: en
+today: 2026-11-10          # Tuesday; "friday next week" is Friday 2026-11-20
+notes: Plain English haircut booking with the date said as "friday next week" and the time as "ten thirty"; the caller reads a 12-digit number off a card in three groups with pauses. A good agent waits through the pauses, books Friday 20 Nov at 10:30 and reads everything back before booking.
+reaction_ms: 400
+lines:
+  - hi there i'd like to book a haircut for friday next week please
+  - ten thirty if you have it
+  - it's jenna whitfield
+  - say: it's zero one five seven three four one eight two two six zero
+    pauses: [{after_word: 6, ms: 1300}, {after_word: 9, ms: 1100}]
+  - yes that's all correct
+expect:
+  booking: {service: haircut, date: 2026-11-20, time: "10:30", name: Jenna Whitfield, phone: "015734182260"}
