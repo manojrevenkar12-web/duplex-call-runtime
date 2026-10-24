@@ -1,0 +1,595 @@
+{
+ "set": "set1",
+ "scenarios": [
+  "de-am-dienstag-faerben-paare",
+  "de-morgen-bart-korrektur-nummer",
+  "de-samstag-belegt-laerm",
+  "de-uebermorgen-halb-drei",
+  "en-ask-for-person",
+  "en-car-speakerphone-thursday-late",
+  "en-fourth-colour-double",
+  "en-hours-question-backchannel",
+  "en-interrupt-change-time",
+  "en-next-friday-haircut",
+  "en-taken-saturday-slot",
+  "en-tomorrow-beard-card-pauses"
+ ],
+ "summary": {
+  "full": {
+   "calls": 12,
+   "response_ms": {
+    "n": 58,
+    "p50": 1517.3,
+    "p90": 2270.8,
+    "mean": 1613.0
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 6,
+   "interrupt_stop_ms": {
+    "n": 1,
+    "p50": 980.0,
+    "p90": 980.0
+   },
+   "interrupts_stopped": "1/1",
+   "backchannels_disrupted": "0/3",
+   "false_stops": 0,
+   "task_success": "4/12",
+   "wer": 0.273,
+   "hedged": 27,
+   "taken_back": 9
+  }
+ },
+ "calls": {
+  "full": [
+   {
+    "scenario": "de-am-dienstag-faerben-paare",
+    "lang": "de",
+    "response_ms": [
+     1459.2,
+     1693.1,
+     1522.6,
+     3315.4,
+     1774.1
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     16,
+     26
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 1,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 2.0,
+     "max": 5.6
+    },
+    "config": "full",
+    "call_id": "de-am-dienstag-faerben-paare-4493b3",
+    "seconds": 46.6
+   },
+   {
+    "scenario": "de-morgen-bart-korrektur-nummer",
+    "lang": "de",
+    "response_ms": [
+     1885.4,
+     1493.8,
+     1548.0,
+     2252.5,
+     2318.1,
+     1765.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "nein halt die letzte ziffer ist eine drei nicht zwei entschuldigung",
+      "stop_ms": null,
+      "was_talking": false
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     26,
+     40
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 2.0,
+     "max": 31.9
+    },
+    "config": "full",
+    "call_id": "de-morgen-bart-korrektur-nummer-f55635",
+    "seconds": 57.9
+   },
+   {
+    "scenario": "de-samstag-belegt-laerm",
+    "lang": "de",
+    "response_ms": [
+     1515.6,
+     1653.2,
+     1826.2,
+     1681.0,
+     998.2
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     25,
+     33
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.4,
+     "max": 54.6
+    },
+    "config": "full",
+    "call_id": "de-samstag-belegt-laerm-172085",
+    "seconds": 40.0
+   },
+   {
+    "scenario": "de-uebermorgen-halb-drei",
+    "lang": "de",
+    "response_ms": [
+     1848.8,
+     1819.0,
+     2249.2,
+     3296.7,
+     1346.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     19,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 12.5
+    },
+    "config": "full",
+    "call_id": "de-uebermorgen-halb-drei-fd0ddb",
+    "seconds": 52.5
+   },
+   {
+    "scenario": "en-ask-for-person",
+    "lang": "en",
+    "response_ms": [
+     1406.8,
+     1766.9,
+     1572.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     2,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 20.0
+    },
+    "config": "full",
+    "call_id": "en-ask-for-person-286df2",
+    "seconds": 30.5
+   },
+   {
+    "scenario": "en-car-speakerphone-thursday-late",
+    "lang": "en",
+    "response_ms": [
+     1005.9,
+     1339.8,
+     1569.3,
+     1571.8,
+     1519.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     8,
+     39
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 2,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.2,
+     "max": 23.5
+    },
+    "config": "full",
+    "call_id": "en-car-speakerphone-thursday-late-dce918",
+    "seconds": 53.6
+   },
+   {
+    "scenario": "en-fourth-colour-double",
+    "lang": "en",
+    "response_ms": [
+     1360.2,
+     1912.2,
+     1123.1,
+     1496.9,
+     1273.5
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     42
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 6,
+     "speculation_cancelled": 0,
+     "taken_back": 2,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 27.6
+    },
+    "config": "full",
+    "call_id": "en-fourth-colour-double-311ffc",
+    "seconds": 54.1
+   },
+   {
+    "scenario": "en-hours-question-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1045.2,
+     1511.4,
+     908.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     },
+     {
+      "text": "yeah",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     4,
+     34
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 2,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 3.8
+    },
+    "config": "full",
+    "call_id": "en-hours-question-backchannel-fdf884",
+    "seconds": 33.4
+   },
+   {
+    "scenario": "en-interrupt-change-time",
+    "lang": "en",
+    "response_ms": [
+     1035.2,
+     1300.9,
+     1014.8,
+     1233.0,
+     2313.5,
+     1278.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "oh wait sorry can we make that half past four instead",
+      "stop_ms": 980.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     5,
+     40
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 5,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.6,
+     "max": 11.8
+    },
+    "config": "full",
+    "call_id": "en-interrupt-change-time-5d8cf5",
+    "seconds": 55.4
+   },
+   {
+    "scenario": "en-next-friday-haircut",
+    "lang": "en",
+    "response_ms": [
+     951.4,
+     1928.8,
+     1557.9,
+     1122.4,
+     1308.2
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     5,
+     43
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 6,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 6.9
+    },
+    "config": "full",
+    "call_id": "en-next-friday-haircut-502738",
+    "seconds": 53.6
+   },
+   {
+    "scenario": "en-taken-saturday-slot",
+    "lang": "en",
+    "response_ms": [
+     2418.4,
+     1995.1,
+     1374.1,
+     3399.0,
+     953.6
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     6,
+     44
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 4,
+     "speculation_cancelled": 2,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 6.4
+    },
+    "config": "full",
+    "call_id": "en-taken-saturday-slot-56022d",
+    "seconds": 51.5
+   },
+   {
+    "scenario": "en-tomorrow-beard-card-pauses",
+    "lang": "en",
+    "response_ms": [
+     1128.2,
+     1558.5,
+     1113.0,
+     1500.3,
+     1424.6
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     3,
+     41
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.9,
+     "max": 10.0
+    },
+    "config": "full",
+    "call_id": "en-tomorrow-beard-card-pauses-318762",
+    "seconds": 59.4
+   }
+  ]
+ },
+ "settings": {
+  "turn": {
+   "speculate_after_ms": 120,
+   "evaluate_after_ms": 200,
+   "respond_probability": 0.55,
+   "speculate_probability": 0.35,
+   "max_pause_ms": 1400,
+   "entity_max_pause_ms": 2600,
+   "silence_only_ms": 800
+  },
+  "barge_in": {
+   "min_speech_ms": 300,
+   "backchannel_max_ms": 900,
+   "resume_after_ms": 700,
+   "hold": "duck",
+   "duck_db": 14
+  }
+ },
+ "first_run": true,
+ "recorded_at": "2026-10-24T21:53:59+00:00",
+ "commit": "b67f0416dc6224a9b92f22e92b3d8c1333e3bd6e"
+}
