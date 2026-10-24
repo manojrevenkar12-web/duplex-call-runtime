@@ -21,7 +21,7 @@ describe("Evaluation", () => {
     mockApi({ "/api/evals": [...evalDocs, { ...evalDocs[0]!, set: "set1", first_run: true }] });
     renderAt("/evals");
     const headings = await screen.findAllByRole("heading", { level: 2 });
-    expect(headings[0]).toHaveTextContent("Held-out set set1, first run");
+    expect(headings[0]).toHaveTextContent("Held-out set 1, first run");
   });
 
   it("says how to produce results when there are none", async () => {

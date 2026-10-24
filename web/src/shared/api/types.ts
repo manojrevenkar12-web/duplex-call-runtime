@@ -79,6 +79,7 @@ export interface EvalSummary {
   hedged: number;
   taken_back: number;
   response_vs_full?: [number, number, number] | null;
+  response_p90_vs_full?: [number, number, number] | null;
 }
 
 export interface EvalDoc {

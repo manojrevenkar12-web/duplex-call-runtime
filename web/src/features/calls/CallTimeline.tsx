@@ -1,12 +1,13 @@
 import { motion as m } from "framer-motion";
-import { useId } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { clock } from "../../shared/lib/format";
 import { motion } from "../../shared/theme/motion";
 import styles from "./CallTimeline.module.css";
 import type { Lanes, Marker } from "./timeline";
 
-const PX_PER_S = 56;
+const GUTTER = 48; // room for the lane names
+const MIN_PX_PER_S = 18; // below this, a 20 ms decision and a word blur together
 const LANE = 36;
 const ROW = 30;
 const TOP = 22;
@@ -18,7 +19,7 @@ const LABEL: Record<Marker["kind"], string> = {
   speculate: "Thinking early",
   taken_back: "Taken back",
   interrupt: "Interrupted",
-  hold: "Paused",
+  hold: "Yielded (ducked or paused)",
   resume: "Resumed",
   backchannel: "Backchannel",
   hedged: "Hedged",
@@ -28,9 +29,22 @@ const LABEL: Record<Marker["kind"], string> = {
  * between them. Selecting an answer opens its latency breakdown. */
 export function CallTimeline({ lanes, selected, onSelect }: { lanes: Lanes; selected: number | null; onSelect: (turn: number) => void }) {
   const clip = useId().replace(/:/g, "");
-  const width = Math.max(600, (lanes.duration / 1000) * PX_PER_S + 40);
-  const x = (t: number) => 20 + (t / 1000) * PX_PER_S;
-  const ticks = Array.from({ length: Math.floor(lanes.duration / 5000) + 1 }, (_, i) => i * 5000);
+  const box = useRef<HTMLDivElement>(null);
+  const [avail, setAvail] = useState(0);
+  useEffect(() => {
+    const el = box.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(([e]) => setAvail(e?.contentRect.width ?? 0));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  // fit the whole call when there is room; scroll sideways when there is not
+  const seconds = Math.max(lanes.duration / 1000, 1);
+  const pxPerS = Math.max(MIN_PX_PER_S, (avail - GUTTER - 20) / seconds);
+  const width = Math.max(320, seconds * pxPerS + GUTTER + 20);
+  const x = (t: number) => GUTTER + (t / 1000) * pxPerS;
+  const tickMs = pxPerS * 5 < 90 ? 10_000 : 5_000;
+  const ticks = Array.from({ length: Math.floor(lanes.duration / tickMs) + 1 }, (_, i) => i * tickMs);
   return (
     <figure className={styles.figure}>
       <figcaption className={styles.legend}>
@@ -39,7 +53,7 @@ export function CallTimeline({ lanes, selected, onSelect }: { lanes: Lanes; sele
         <span className={styles.key} data-kind="decision">Turn decisions</span>
         <span className={styles.key} data-kind="interrupt">Interruptions</span>
       </figcaption>
-      <div className={styles.scroller} tabIndex={0} aria-label="Call timeline, scroll sideways">
+      <div ref={box} className={styles.scroller} tabIndex={0} aria-label="Call timeline, scroll sideways">
         <svg width={width} height={HEIGHT} role="img" aria-label={`Call timeline, ${clock(lanes.duration)} long`}>
           <defs>
             <clipPath id={clip}>
@@ -61,8 +75,8 @@ export function CallTimeline({ lanes, selected, onSelect }: { lanes: Lanes; sele
             caller
           </text>
           <g clipPath={`url(#${clip})`}>
-            <line x1={0} x2={width} y1={Y.caller + LANE / 2} y2={Y.caller + LANE / 2} className={styles.baseline} />
-            <line x1={0} x2={width} y1={Y.agent + LANE / 2} y2={Y.agent + LANE / 2} className={styles.baseline} />
+            <line x1={GUTTER} x2={width} y1={Y.caller + LANE / 2} y2={Y.caller + LANE / 2} className={styles.baseline} />
+            <line x1={GUTTER} x2={width} y1={Y.agent + LANE / 2} y2={Y.agent + LANE / 2} className={styles.baseline} />
             {lanes.caller.map((s) => (
               <rect key={`c${s.start}`} x={x(s.start)} y={Y.caller + 4} width={Math.max(2, x(s.end) - x(s.start))} height={LANE - 8} rx={3} className={styles.caller}>
                 <title>{`Caller ${clock(s.start)}–${clock(s.end)}`}</title>

@@ -15,15 +15,27 @@ const ratio = (s: string): number | null => {
   return b ? (a as number) / b : null;
 };
 
+function interval(v: [number, number, number] | null | undefined): string {
+  if (!v) return "–";
+  const sign = (x: number) => (x > 0 ? "+" : "");
+  return `${sign(v[0])}${ms(v[0])} (${ms(v[1])} to ${ms(v[2])})`;
+}
+
 export const ROWS: MetricRow[] = [
   { key: "task", label: "Bookings made correctly", help: "The exact booking, transfer or no-booking the script expects.", value: (m) => m.task_success, rank: (m) => { const r = ratio(m.task_success); return r === null ? null : -r; } },
   { key: "p50", label: "Time to first audio, median", help: "Caller stops speaking to the agent's first sound, measured on the caller's side of the line.", value: (m) => ms(m.response_ms.p50), rank: (m) => m.response_ms.p50 },
   { key: "p90", label: "Time to first audio, 90th percentile", help: "The slow replies a caller notices.", value: (m) => ms(m.response_ms.p90), rank: (m) => m.response_ms.p90 },
   {
     key: "diff",
-    label: "Median difference from full",
+    label: "Median difference from shipped",
     help: "With a 95% bootstrap interval. An interval that excludes zero is a real difference on this set.",
-    value: (m) => (m.response_vs_full ? `${m.response_vs_full[0] > 0 ? "+" : ""}${ms(m.response_vs_full[0])} (${ms(m.response_vs_full[1])} to ${ms(m.response_vs_full[2])})` : "–"),
+    value: (m) => interval(m.response_vs_full),
+  },
+  {
+    key: "diff90",
+    label: "90th percentile difference from shipped",
+    help: "The slow tail: what hedging is for.",
+    value: (m) => interval(m.response_p90_vs_full),
   },
   { key: "pause", label: "Spoke into a mid-sentence pause", help: "Lines the caller paused in (dictating a number), where the agent cut in.", value: (m) => (m.pause_takeover_rate === null ? "–" : `${pct(m.pause_takeover_rate)} of ${m.pause_lines}`), rank: (m) => m.pause_takeover_rate },
   { key: "stopped", label: "Interruptions that stopped the agent", help: "Within 1.5 s of the caller starting to talk over it.", value: (m) => m.interrupts_stopped, rank: (m) => { const r = ratio(m.interrupts_stopped); return r === null ? null : -r; } },

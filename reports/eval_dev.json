@@ -1,0 +1,2955 @@
+{
+ "set": "dev",
+ "scenarios": [
+  "de-book-basic",
+  "de-interrupt",
+  "en-backchannel",
+  "en-book-basic",
+  "en-interrupt-correction",
+  "en-loud-echo",
+  "en-noisy-street",
+  "en-number-pauses",
+  "en-taken-slot",
+  "en-transfer"
+ ],
+ "summary": {
+  "full": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1485.1,
+    "p90": 2538.9,
+    "mean": 1676.5
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 880.0,
+    "p90": 944.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/1",
+   "false_stops": 0,
+   "task_success": "3/10",
+   "wer": 0.216,
+   "hedged": 19,
+   "taken_back": 1
+  },
+  "silence_endpoint": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1824.1,
+    "p90": 2223.6,
+    "mean": 1897.1
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 950.0,
+    "p90": 990.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/1",
+   "false_stops": 0,
+   "task_success": "3/10",
+   "wer": 0.199,
+   "hedged": 19,
+   "taken_back": 4,
+   "response_vs_full": [
+    339.0,
+    68.9,
+    445.8
+   ],
+   "response_p90_vs_full": [
+    -315.3,
+    -1416.5,
+    654.5
+   ]
+  },
+  "no_speculation": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1674.5,
+    "p90": 2701.8,
+    "mean": 1786.8
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 900.0,
+    "p90": 900.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/1",
+   "false_stops": 0,
+   "task_success": "4/10",
+   "wer": 0.213,
+   "hedged": 20,
+   "taken_back": 1,
+   "response_vs_full": [
+    189.4,
+    -301.7,
+    375.5
+   ],
+   "response_p90_vs_full": [
+    162.9,
+    -1148.2,
+    1603.5
+   ]
+  },
+  "no_echo_cancel": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1435.0,
+    "p90": 2359.7,
+    "mean": 1663.5
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 1030.0,
+    "p90": 1086.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/1",
+   "false_stops": 19,
+   "task_success": "5/10",
+   "wer": 0.376,
+   "hedged": 25,
+   "taken_back": 4,
+   "response_vs_full": [
+    -50.1,
+    -412.1,
+    211.9
+   ],
+   "response_p90_vs_full": [
+    -179.2,
+    -1371.5,
+    1629.3
+   ]
+  },
+  "no_hedging": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1482.8,
+    "p90": 2872.2,
+    "mean": 1719.6
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 950.0,
+    "p90": 1006.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "0/1",
+   "false_stops": 0,
+   "task_success": "4/10",
+   "wer": 0.199,
+   "hedged": 0,
+   "taken_back": 1,
+   "response_vs_full": [
+    -2.3,
+    -332.8,
+    170.1
+   ],
+   "response_p90_vs_full": [
+    333.3,
+    -1128.8,
+    1441.6
+   ]
+  },
+  "pause_on_barge_in": {
+   "calls": 10,
+   "response_ms": {
+    "n": 45,
+    "p50": 1355.0,
+    "p90": 2304.3,
+    "mean": 1635.4
+   },
+   "pause_takeover_rate": 0.0,
+   "pause_lines": 3,
+   "interrupt_stop_ms": {
+    "n": 2,
+    "p50": 470.0,
+    "p90": 542.0
+   },
+   "interrupts_stopped": "2/2",
+   "backchannels_disrupted": "1/1",
+   "false_stops": 0,
+   "task_success": "3/10",
+   "wer": 0.206,
+   "hedged": 20,
+   "taken_back": 1,
+   "response_vs_full": [
+    -130.1,
+    -394.6,
+    205.7
+   ],
+   "response_p90_vs_full": [
+    -234.6,
+    -1521.8,
+    1458.5
+   ]
+  }
+ },
+ "calls": {
+  "full": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1937.4,
+     1893.6,
+     1479.0,
+     2559.4,
+     1766.0
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     16,
+     35
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 2.0,
+     "max": 8.0
+    },
+    "config": "full",
+    "call_id": "de-book-basic-d16d56",
+    "seconds": 51.2,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     1779.8,
+     1785.9,
+     1700.2,
+     1680.7,
+     1981.9,
+     2508.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 800.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     22,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 4.5
+    },
+    "config": "full",
+    "call_id": "de-interrupt-352358",
+    "seconds": 46.3,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     916.8,
+     1481.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     12
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 15.0
+    },
+    "config": "full",
+    "call_id": "en-backchannel-463656",
+    "seconds": 23.5
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     790.6,
+     946.6,
+     1393.4,
+     1268.1,
+     1203.8
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     2,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 49.1
+    },
+    "config": "full",
+    "call_id": "en-book-basic-4467b3",
+    "seconds": 51.1
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     968.5,
+     1228.9,
+     1787.0,
+     3657.1,
+     1661.0,
+     1421.1
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 960.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     5,
+     36
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 86.7
+    },
+    "config": "full",
+    "call_id": "en-interrupt-correction-60074a",
+    "seconds": 57.9,
+    "task_wrong": [
+     "date",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     850.9,
+     1485.1,
+     1287.9,
+     3852.8,
+     1403.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     28
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 46.3
+    },
+    "config": "full",
+    "call_id": "en-loud-echo-bccc00",
+    "seconds": 48.6,
+    "task_wrong": [
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     870.6,
+     1786.2,
+     1119.1,
+     3573.9,
+     1237.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     5,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 3,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 8.2
+    },
+    "config": "full",
+    "call_id": "en-noisy-street-62e6cb",
+    "seconds": 52.1,
+    "task_wrong": [
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     1683.8,
+     1237.4,
+     1065.5,
+     1038.1,
+     1703.8
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     1,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.1,
+     "max": 8.0
+    },
+    "config": "full",
+    "call_id": "en-number-pauses-5a4248",
+    "seconds": 55.9,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1614.9,
+     1754.0,
+     1464.9,
+     3388.8,
+     1458.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     29
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.7,
+     "max": 34.0
+    },
+    "config": "full",
+    "call_id": "en-taken-slot-e4ffc6",
+    "seconds": 60.5,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1767.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     9
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.5,
+     "max": 4.3
+    },
+    "config": "full",
+    "call_id": "en-transfer-6fe1e9",
+    "seconds": 13.6
+   }
+  ],
+  "silence_endpoint": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1781.5,
+     1866.8,
+     1690.1,
+     2636.4,
+     2068.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     15,
+     35
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 2.1,
+     "max": 6.0
+    },
+    "config": "silence_endpoint",
+    "call_id": "de-book-basic-e1d65c",
+    "seconds": 41.9,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     1746.6,
+     1654.4,
+     2227.9,
+     1869.8,
+     1820.8,
+     1542.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 1000.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     21,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 17.8
+    },
+    "config": "silence_endpoint",
+    "call_id": "de-interrupt-aed944",
+    "seconds": 48.3,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     2040.8,
+     1452.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     0,
+     12
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.4,
+     "max": 5.4
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-backchannel-42fed7",
+    "seconds": 28.1
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     1321.6,
+     1875.0,
+     1846.0,
+     1722.7,
+     1769.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 40.8
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-book-basic-a6f0e0",
+    "seconds": 54.1
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     1907.1,
+     2177.8,
+     1713.3,
+     2198.4,
+     2152.1,
+     1883.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 900.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     6,
+     36
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 52.4
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-interrupt-correction-eaa114",
+    "seconds": 59.3,
+    "task_wrong": [
+     "date",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     1530.0,
+     2217.1,
+     1679.5,
+     1723.1,
+     3153.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     28
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 40.3
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-loud-echo-2768f9",
+    "seconds": 50.7,
+    "task_wrong": [
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     1584.5,
+     1824.1,
+     1632.5,
+     1891.5,
+     3101.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     3,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 32.9
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-noisy-street-1b3f19",
+    "seconds": 52.3,
+    "task_wrong": [
+     "name"
+    ]
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     1537.1,
+     1763.5,
+     1594.8,
+     2064.6,
+     1772.4
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     3,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 2,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.2,
+     "max": 4.6
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-number-pauses-76a5f9",
+    "seconds": 53.6,
+    "task_wrong": [
+     "time",
+     "name"
+    ]
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     2335.6,
+     2027.0,
+     1814.4,
+     1839.2,
+     1416.8
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     2,
+     29
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.3,
+     "max": 15.5
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-taken-slot-40c67e",
+    "seconds": 60.3,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1901.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     9
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 2.9,
+     "max": 151.9
+    },
+    "config": "silence_endpoint",
+    "call_id": "en-transfer-4161dd",
+    "seconds": 13.1
+   }
+  ],
+  "no_speculation": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1840.4,
+     1894.4,
+     1521.6,
+     2830.4,
+     2238.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     16,
+     35
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 22.8
+    },
+    "config": "no_speculation",
+    "call_id": "de-book-basic-2479ac",
+    "seconds": 56.5
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     1849.8,
+     1899.4,
+     2340.4,
+     2156.4,
+     2508.9,
+     2169.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 900.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     23,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 4.6
+    },
+    "config": "no_speculation",
+    "call_id": "de-interrupt-146d32",
+    "seconds": 54.9,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1551.1,
+     937.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     12
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.3,
+     "max": 142.4
+    },
+    "config": "no_speculation",
+    "call_id": "en-backchannel-30bb49",
+    "seconds": 22.4
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     933.5,
+     1189.6,
+     1170.8,
+     1309.8,
+     1110.5
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 9.3
+    },
+    "config": "no_speculation",
+    "call_id": "en-book-basic-bdfa82",
+    "seconds": 50.4
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     1067.6,
+     1852.7,
+     1337.0,
+     3692.6,
+     1747.7,
+     1075.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 900.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     36
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.4,
+     "max": 7.3
+    },
+    "config": "no_speculation",
+    "call_id": "en-interrupt-correction-bc73b1",
+    "seconds": 57.7,
+    "task_wrong": [
+     "date",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     939.0,
+     1371.4,
+     2493.9,
+     3906.0,
+     1143.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     28
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 6.1
+    },
+    "config": "no_speculation",
+    "call_id": "en-loud-echo-7f5935",
+    "seconds": 50.3,
+    "task_wrong": [
+     "name",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     1379.0,
+     1390.1,
+     1080.8,
+     1278.0,
+     2044.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 16.5
+    },
+    "config": "no_speculation",
+    "call_id": "en-noisy-street-1b33af",
+    "seconds": 50.1,
+    "task_wrong": [
+     "name"
+    ]
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     1678.2,
+     1217.5,
+     1084.1,
+     3550.1,
+     1674.5
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     3,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 8.8
+    },
+    "config": "no_speculation",
+    "call_id": "en-number-pauses-5c74c4",
+    "seconds": 57.0,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1472.5,
+     2418.6,
+     1730.8,
+     3451.8,
+     1096.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     3,
+     29
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.5,
+     "max": 72.7
+    },
+    "config": "no_speculation",
+    "call_id": "en-taken-slot-79b5c4",
+    "seconds": 61.2,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1783.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     9
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.9,
+     "max": 4.3
+    },
+    "config": "no_speculation",
+    "call_id": "en-transfer-b3073c",
+    "seconds": 13.0
+   }
+  ],
+  "no_echo_cancel": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1933.4,
+     2028.6,
+     1990.8,
+     4118.5,
+     2036.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 1,
+    "task": false,
+    "wer": [
+     17,
+     35
+    ],
+    "server": {
+     "interrupt": 2,
+     "hold": 5,
+     "resume": 3,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 9.6
+    },
+    "config": "no_echo_cancel",
+    "call_id": "de-book-basic-3994b0",
+    "seconds": 58.2,
+    "task_wrong": [
+     "name",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     2332.8,
+     1976.5,
+     2194.9,
+     1976.1,
+     2235.4,
+     1173.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 960.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     18,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 2,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 1,
+     "speculation_cancelled": 1,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.8,
+     "max": 55.2
+    },
+    "config": "no_echo_cancel",
+    "call_id": "de-interrupt-915315",
+    "seconds": 54.5,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1122.5,
+     998.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 2,
+    "task": true,
+    "wer": [
+     6,
+     12
+    ],
+    "server": {
+     "interrupt": 2,
+     "hold": 5,
+     "resume": 2,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 6.5
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-backchannel-371eb4",
+    "seconds": 24.4
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     802.6,
+     866.8,
+     1418.6,
+     1082.8,
+     1031.6
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 1,
+    "task": false,
+    "wer": [
+     8,
+     37
+    ],
+    "server": {
+     "interrupt": 2,
+     "hold": 6,
+     "resume": 3,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 6,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.6,
+     "max": 50.3
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-book-basic-343f16",
+    "seconds": 36.9,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     1272.5,
+     1435.0,
+     1287.8,
+     3611.2,
+     1685.6,
+     1066.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 1100.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 1,
+    "task": false,
+    "wer": [
+     12,
+     36
+    ],
+    "server": {
+     "interrupt": 2,
+     "hold": 10,
+     "resume": 8,
+     "backchannel": 1,
+     "speculate": 6,
+     "speculation_used": 5,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 9.0
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-interrupt-correction-f5053c",
+    "seconds": 56.0,
+    "task_wrong": [
+     "date",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     1030.9,
+     1605.1,
+     1647.3,
+     4113.6,
+     1098.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 8,
+    "task": false,
+    "wer": [
+     36,
+     28
+    ],
+    "server": {
+     "interrupt": 10,
+     "hold": 10,
+     "resume": 0,
+     "backchannel": 1,
+     "speculate": 8,
+     "speculation_used": 7,
+     "speculation_cancelled": 1,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 4.8
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-loud-echo-95c399",
+    "seconds": 41.7,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     1386.6,
+     1238.4,
+     1058.4,
+     1341.9,
+     1712.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     3,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 2.0,
+     "max": 24.8
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-noisy-street-39f1d1",
+    "seconds": 50.5
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     1130.4,
+     1795.4,
+     1232.5,
+     1203.9,
+     1487.9
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 1,
+    "task": true,
+    "wer": [
+     1,
+     32
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 7,
+     "resume": 6,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 52.9
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-number-pauses-4ded4f",
+    "seconds": 51.2
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1439.6,
+     2377.6,
+     973.1,
+     1237.6,
+     2479.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 4,
+    "task": true,
+    "wer": [
+     3,
+     29
+    ],
+    "server": {
+     "interrupt": 4,
+     "hold": 9,
+     "resume": 5,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 6,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 5
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.4,
+     "max": 32.1
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-taken-slot-76c38b",
+    "seconds": 54.5
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1588.8
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 1,
+    "task": true,
+    "wer": [
+     2,
+     9
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 2,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 1,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 5.9
+    },
+    "config": "no_echo_cancel",
+    "call_id": "en-transfer-adef85",
+    "seconds": 12.8
+   }
+  ],
+  "no_hedging": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1820.1,
+     1708.5,
+     1482.8,
+     3404.0,
+     1591.2
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     18,
+     35
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.9,
+     "max": 5.9
+    },
+    "config": "no_hedging",
+    "call_id": "de-book-basic-80d368",
+    "seconds": 49.9,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     3100.9,
+     1817.8,
+     1346.5,
+     1829.5,
+     2245.4,
+     2708.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 1020.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     20,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.4,
+     "max": 33.5
+    },
+    "config": "no_hedging",
+    "call_id": "de-interrupt-4ae492",
+    "seconds": 55.7,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1251.5,
+     789.9
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": false
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     0,
+     12
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.1,
+     "max": 39.9
+    },
+    "config": "no_hedging",
+    "call_id": "en-backchannel-1ad325",
+    "seconds": 22.2
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     2174.5,
+     1165.9,
+     956.5,
+     1425.6,
+     1348.9
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 44.9
+    },
+    "config": "no_hedging",
+    "call_id": "en-book-basic-0d1a51",
+    "seconds": 52.1
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     1073.3,
+     1063.5,
+     1063.6,
+     4839.9,
+     1820.5,
+     1482.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 880.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     6,
+     36
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 6,
+     "speculation_cancelled": 0,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.2,
+     "max": 29.7
+    },
+    "config": "no_hedging",
+    "call_id": "en-interrupt-correction-cd9ae7",
+    "seconds": 58.8,
+    "task_wrong": [
+     "date",
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     819.5,
+     1367.4,
+     1319.9,
+     3638.6,
+     1519.2
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     4,
+     28
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 8.2
+    },
+    "config": "no_hedging",
+    "call_id": "en-loud-echo-c33e2e",
+    "seconds": 48.6,
+    "task_wrong": [
+     "phone"
+    ]
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     970.6,
+     2582.6,
+     1178.2,
+     1511.2,
+     1387.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     3,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 69.0
+    },
+    "config": "no_hedging",
+    "call_id": "en-noisy-street-e0a20d",
+    "seconds": 50.3,
+    "task_wrong": [
+     "name"
+    ]
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     915.9,
+     2981.1,
+     1152.9,
+     1048.9,
+     1619.5
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "wer": [
+     2,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 1,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 3,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.8,
+     "p95": 1.3,
+     "max": 7.7
+    },
+    "config": "no_hedging",
+    "call_id": "en-number-pauses-b4a287",
+    "seconds": 56.0,
+    "task_wrong": [
+     "no booking"
+    ]
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1337.4,
+     1645.9,
+     1239.6,
+     2431.1,
+     1567.8
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     29
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 7.7
+    },
+    "config": "no_hedging",
+    "call_id": "en-taken-slot-4d44b9",
+    "seconds": 55.0
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1634.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "wer": [
+     1,
+     9
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 0
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.2,
+     "max": 35.3
+    },
+    "config": "no_hedging",
+    "call_id": "en-transfer-c5c87b",
+    "seconds": 13.3
+   }
+  ],
+  "pause_on_barge_in": [
+   {
+    "scenario": "de-book-basic",
+    "lang": "de",
+    "response_ms": [
+     1917.6,
+     1960.2,
+     1485.1,
+     3848.9,
+     2264.9
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "phone"
+    ],
+    "wer": [
+     16,
+     35
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 0,
+     "speculation_used": 0,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.9,
+     "max": 7.6
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "de-book-basic-b8a3a6",
+    "seconds": 58.9
+   },
+   {
+    "scenario": "de-interrupt",
+    "lang": "de",
+    "response_ms": [
+     1693.6,
+     2012.5,
+     2330.6,
+     1905.0,
+     1767.1,
+     1305.5
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "ich m\u00f6chte einen termin zum f\u00e4rben am freitag",
+      "stop_ms": 560.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     22,
+     33
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 3
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 7.3
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "de-interrupt-4c3e67",
+    "seconds": 46.1
+   },
+   {
+    "scenario": "en-backchannel",
+    "lang": "en",
+    "response_ms": [
+     1561.2,
+     932.1
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [
+     {
+      "text": "mhm",
+      "disrupted": true
+     }
+    ],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     1,
+     12
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 2,
+     "resume": 1,
+     "backchannel": 0,
+     "speculate": 2,
+     "speculation_used": 2,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 6.5
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-backchannel-2de10f",
+    "seconds": 21.2
+   },
+   {
+    "scenario": "en-book-basic",
+    "lang": "en",
+    "response_ms": [
+     863.0,
+     1161.1,
+     1182.6,
+     1331.0,
+     1104.1
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     2,
+     37
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 7.6
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-book-basic-8074af",
+    "seconds": 50.5
+   },
+   {
+    "scenario": "en-interrupt-correction",
+    "lang": "en",
+    "response_ms": [
+     951.5,
+     1941.6,
+     1264.5,
+     3736.8,
+     1770.1,
+     1218.4
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [
+     {
+      "text": "no sorry not wednesday thursday please",
+      "stop_ms": 380.0,
+      "was_talking": true
+     }
+    ],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "phone"
+    ],
+    "wer": [
+     5,
+     36
+    ],
+    "server": {
+     "interrupt": 1,
+     "hold": 1,
+     "resume": 0,
+     "backchannel": 1,
+     "speculate": 5,
+     "speculation_used": 5,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 4
+    },
+    "inbound_lag_ms": {
+     "p50": 0.9,
+     "p95": 1.8,
+     "max": 33.1
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-interrupt-correction-58cc9f",
+    "seconds": 58.4
+   },
+   {
+    "scenario": "en-loud-echo",
+    "lang": "en",
+    "response_ms": [
+     923.6,
+     1387.1,
+     1289.2,
+     3378.4,
+     1355.0
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "name",
+     "phone"
+    ],
+    "wer": [
+     4,
+     28
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 5,
+     "speculation_used": 4,
+     "speculation_cancelled": 1,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 269.8
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-loud-echo-9372de",
+    "seconds": 48.1
+   },
+   {
+    "scenario": "en-noisy-street",
+    "lang": "en",
+    "response_ms": [
+     1336.9,
+     1285.2,
+     969.1,
+     1295.8,
+     2052.1
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "name"
+    ],
+    "wer": [
+     2,
+     31
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 4,
+     "speculation_used": 4,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.3,
+     "max": 8.8
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-noisy-street-96323d",
+    "seconds": 49.3
+   },
+   {
+    "scenario": "en-number-pauses",
+    "lang": "en",
+    "response_ms": [
+     1756.1,
+     1096.3,
+     1020.4,
+     1117.0,
+     1579.2
+    ],
+    "pause_lines": 1,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     2,
+     32
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 6,
+     "speculation_used": 5,
+     "speculation_cancelled": 1,
+     "taken_back": 1,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.2,
+     "max": 13.0
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-number-pauses-ec16c4",
+    "seconds": 54.5
+   },
+   {
+    "scenario": "en-taken-slot",
+    "lang": "en",
+    "response_ms": [
+     1247.8,
+     1687.1,
+     1082.4,
+     3299.2,
+     1344.3
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": false,
+    "task_wrong": [
+     "no booking"
+    ],
+    "wer": [
+     3,
+     29
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 3,
+     "speculation_used": 3,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 2
+    },
+    "inbound_lag_ms": {
+     "p50": 0.6,
+     "p95": 1.2,
+     "max": 26.3
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-taken-slot-64d48c",
+    "seconds": 59.2
+   },
+   {
+    "scenario": "en-transfer",
+    "lang": "en",
+    "response_ms": [
+     1580.8
+    ],
+    "pause_lines": 0,
+    "pause_takeovers": 0,
+    "interrupts": [],
+    "backchannels": [],
+    "false_stops": 0,
+    "task": true,
+    "task_wrong": [],
+    "wer": [
+     1,
+     9
+    ],
+    "server": {
+     "interrupt": 0,
+     "hold": 0,
+     "resume": 0,
+     "backchannel": 0,
+     "speculate": 1,
+     "speculation_used": 1,
+     "speculation_cancelled": 0,
+     "taken_back": 0,
+     "llm_stream_broken": 0,
+     "llm_unavailable": 0,
+     "hedged": 1
+    },
+    "inbound_lag_ms": {
+     "p50": 0.7,
+     "p95": 1.1,
+     "max": 23.1
+    },
+    "config": "pause_on_barge_in",
+    "call_id": "en-transfer-f43aa4",
+    "seconds": 13.1
+   }
+  ]
+ },
+ "settings": {
+  "turn": {
+   "speculate_after_ms": 120,
+   "evaluate_after_ms": 200,
+   "respond_probability": 0.55,
+   "speculate_probability": 0.35,
+   "max_pause_ms": 1400,
+   "entity_max_pause_ms": 2600,
+   "silence_only_ms": 800
+  },
+  "barge_in": {
+   "min_speech_ms": 300,
+   "backchannel_max_ms": 900,
+   "resume_after_ms": 700,
+   "hold": "duck",
+   "duck_db": 14
+  }
+ }
+}

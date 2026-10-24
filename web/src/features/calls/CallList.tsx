@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 import type { CallRow } from "../../shared/api/types";
-import { median, ms, outcomeText } from "../../shared/lib/format";
+import { count, median, ms, outcomeText } from "../../shared/lib/format";
 import styles from "./CallList.module.css";
 
 function flags(c: CallRow): string[] {
@@ -30,7 +30,7 @@ export function CallList({ calls }: { calls: CallRow[] }) {
               </span>
               <span className={styles.stats}>
                 <span>
-                  {c.turns} turns, median reply {ms(median(c.response_ms))}
+                  {count(c.turns, "turn")}, median reply {ms(median(c.response_ms))}
                 </span>
                 {interrupts > 0 && <span>{interrupts === 1 ? "1 interruption" : `${interrupts} interruptions`}</span>}
               </span>

@@ -9,7 +9,7 @@ export function EvalTable({ doc }: { doc: EvalDoc }) {
     <section className={styles.set} aria-labelledby={`set-${doc.set}`}>
       <header className={styles.head}>
         <h2 id={`set-${doc.set}`} className={styles.title}>
-          {doc.first_run ? `Held-out set ${doc.set}, first run` : `${doc.set} set`}
+          {doc.first_run ? `Held-out ${doc.set.replace(/^set/, "set ")}, first run` : `${doc.set[0]?.toUpperCase()}${doc.set.slice(1)} set`}
         </h2>
         <p className={styles.sub}>
           {count(doc.scenarios.length, "simulated call")} per configuration, scored from the caller's side of the line.

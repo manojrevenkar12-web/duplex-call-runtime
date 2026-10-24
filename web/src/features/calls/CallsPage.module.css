@@ -1,7 +1,7 @@
 .page {
   display: grid;
   grid-template-columns: var(--list-col) minmax(0, 1fr);
-  min-height: 100%;
+  height: 100%;
 }
 
 .list {
@@ -12,11 +12,13 @@
 .main {
   padding: var(--space-6);
   min-width: 0;
+  overflow-y: auto;
 }
 
 @media (max-width: 56rem) {
   .page {
     grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
   }
   .list {
     border-right: 0;

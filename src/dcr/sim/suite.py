@@ -69,42 +69,66 @@ async def _run_config(name: str, scenarios: list[Scenario], seed: int) -> list[d
     return out
 
 
-def bootstrap_diff(a: list[float], b: list[float], n: int = 4000, seed: int = 0) -> tuple[float, float, float] | None:
-    """Median difference b - a with a 95% bootstrap interval (independent samples)."""
+def bootstrap_diff(a: list[float], b: list[float], q: float = 50, n: int = 4000, seed: int = 0) -> tuple[float, float, float] | None:
+    """Difference b - a in the q-th percentile (the median by default), with a 95% bootstrap
+    interval (independent samples)."""
     if len(a) < 3 or len(b) < 3:
         return None
     rng = np.random.default_rng(seed)
     aa, bb = np.asarray(a), np.asarray(b)
-    diffs = [float(np.median(rng.choice(bb, len(bb))) - np.median(rng.choice(aa, len(aa)))) for _ in range(n)]
+    diffs = [float(np.percentile(rng.choice(bb, len(bb)), q) - np.percentile(rng.choice(aa, len(aa)), q)) for _ in range(n)]
     return (
-        round(float(np.median(bb) - np.median(aa)), 1),
+        round(float(np.percentile(bb, q) - np.percentile(aa, q)), 1),
         round(float(np.percentile(diffs, 2.5)), 1),
         round(float(np.percentile(diffs, 97.5)), 1),
     )
 
 
-def evaluate(folder: Path, configs: list[str], out: Path | None = None, seed: int = 100, label: str = "dev") -> dict[str, Any]:
-    scenarios = run.load_scenarios(folder)
-    results: dict[str, list[dict[str, Any]]] = {}
-    for name in configs:
-        results[name] = asyncio.run(_run_config(name, scenarios, seed))
+def summarise(label: str, scenarios: list[str], results: dict[str, list[dict[str, Any]]]) -> dict[str, Any]:
     summary = {name: metrics.aggregate(rs) for name, rs in results.items()}
     if "full" in results:
         full = [x for r in results["full"] for x in r["response_ms"]]
         for name, rs in results.items():
             if name != "full":
-                summary[name]["response_vs_full"] = bootstrap_diff(full, [x for r in rs for x in r["response_ms"]])
-    doc = {
+                other = [x for r in rs for x in r["response_ms"]]
+                summary[name]["response_vs_full"] = bootstrap_diff(full, other)
+                summary[name]["response_p90_vs_full"] = bootstrap_diff(full, other, q=90)
+    return {
         "set": label,
-        "scenarios": [s.id for s in scenarios],
+        "scenarios": scenarios,
         "summary": summary,
         "calls": results,
         "settings": {"turn": config.settings()["turn"], "barge_in": config.settings()["barge_in"]},
     }
-    if out is not None:
+
+
+def evaluate(
+    folder: Path, configs: list[str], out: Path | None = None, seed: int = 100, label: str = "dev", merge: bool = False
+) -> dict[str, Any]:
+    """Run the calls in `folder` under each configuration. `merge` adds the configurations to the
+    report already written for `label` (the others are kept, not rerun)."""
+    scenarios = run.load_scenarios(folder)
+    results: dict[str, list[dict[str, Any]]] = {}
+    path = out / f"eval_{label}.json" if out is not None else None
+    if merge and path is not None and path.exists():
+        results = json.loads(path.read_text())["calls"]
+    for name in configs:
+        results[name] = asyncio.run(_run_config(name, scenarios, seed))
+    doc = summarise(label, [s.id for s in scenarios], results)
+    if out is not None and path is not None:
         out.mkdir(parents=True, exist_ok=True)
-        (out / f"eval_{label}.json").write_text(json.dumps(doc, indent=1, default=str))
-        (out / f"EVAL_{label.upper()}.md").write_text(markdown(doc))
+        path.write_text(json.dumps(doc, indent=1, default=str))
+        (out / f"EVAL_{label.upper()}.md").write_text(markdown(doc) + _failures(doc))
+    return doc
+
+
+def rebuild(path: Path) -> dict[str, Any]:
+    """Recompute a report's summary and Markdown from its per-call results (no calls placed)."""
+    old = json.loads(path.read_text())
+    doc = summarise(old["set"], old["scenarios"], old["calls"])
+    for k in ("first_run", "recorded_at", "commit"):
+        if k in old:
+            doc[k] = old[k]
     return doc
 
 
@@ -160,6 +184,7 @@ def markdown(doc: dict[str, Any]) -> str:
         ("Time to first audio, p50 (ms)", lambda m: m["response_ms"]["p50"]),
         ("Time to first audio, p90 (ms)", lambda m: m["response_ms"]["p90"]),
         ("vs full: median difference, 95% CI (ms)", lambda m: _ci(m.get("response_vs_full"))),
+        ("vs full: 90th percentile difference, 95% CI (ms)", lambda m: _ci(m.get("response_p90_vs_full"))),
         (
             "Takeovers in mid-sentence pauses",
             lambda m: f"{m['pause_takeover_rate']:.0%} of {m['pause_lines']}" if m["pause_takeover_rate"] is not None else "-",

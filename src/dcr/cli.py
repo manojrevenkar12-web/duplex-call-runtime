@@ -67,13 +67,14 @@ def train_turn() -> None:
 @app.command("eval")
 def evaluate(
     folder: Path = Path("calls/dev"),
-    configs: str = "full,silence_endpoint,no_speculation,no_echo_cancel,no_hedging",
+    configs: str = "full,silence_endpoint,no_speculation,no_echo_cancel,no_hedging,pause_on_barge_in",
     label: str = "dev",
+    merge: bool = typer.Option(False, help="add these configurations to the existing report instead of replacing it"),
 ) -> None:
     """Run every scenario under each configuration and write reports/EVAL_<label>.md."""
     from .sim import suite
 
-    doc = suite.evaluate(folder, configs.split(","), config.ROOT / "reports", label=label)
+    doc = suite.evaluate(folder, configs.split(","), config.ROOT / "reports", label=label, merge=merge)
     typer.echo(json.dumps(doc["summary"], indent=1, default=str))
 
 

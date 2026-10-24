@@ -58,7 +58,7 @@ export function lanes(events: CallEvent[]): Lanes {
         break;
       case "hold":
         holdStart = e.t;
-        markers.push({ t: e.t, kind: "hold", label: "Paused: caller sound, no words yet" });
+        markers.push({ t: e.t, kind: "hold", label: `${e.mode === "pause" ? "Paused" : "Ducked"}: caller sound, no words yet` });
         break;
       case "resume":
         if (holdStart !== null) held.push({ start: holdStart, end: e.t });

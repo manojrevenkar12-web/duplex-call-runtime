@@ -56,3 +56,45 @@ second half of 8 s, before residual suppression; when the caller talks over the 
 voice passes with less than 2 dB of loss and adaptation freezes. Before convergence (the first
 second of a call) loud echo passes; the near-end gate (docs/adr/0003) is what keeps it from
 pausing the agent.
+
+## Serving
+
+`dcr bench` (`reports/BENCH.json`), the NeMo streaming recogniser on one decoder thread, 16.8 s
+of phone audio per stream.
+
+| Streams | Decoded one at a time: CPU per audio second | Batched (`decode_streams`) | Streams one core carries, batched |
+|---:|---:|---:|---:|
+| 2 | 0.303 | 0.229 | 4.4 |
+| 4 | 0.307 | 0.193 | 5.2 |
+| 8 | 0.295 | 0.174 | 5.7 |
+
+Batching makes the encoder run once per batch: 1.7x the calls per core at 8 streams.
+
+What a turn decision waits for (`await sync()`: everything fed so far decoded), with calls
+feeding audio at real time:
+
+| Concurrent calls | max_batch 1: p50 / p95 | max_batch 8: p50 / p95 |
+|---:|---:|---:|
+| 1 | 0.5 / 51 ms | 0.4 / 50 ms |
+| 2 | 25 / 97 ms | 6 / 75 ms |
+| 4 | **585 / 760 ms** | **64 / 126 ms** |
+
+At four calls the unbatched decoder needs 1.2 cores of work on one thread and falls behind, so
+every turn decision would wait over half a second. Batched, it keeps up. A pod's capacity is set
+here (and `DCR_MODEL_PROVIDER=cuda` moves it to a GPU).
+
+Speech synthesis, one short clause ("Which day would you like?"), Piper on CPU: 127 ms to the
+whole clause alone; 157 ms median with 2 at once and 256 ms with 4 (slowest 420 ms). The end-of-turn model costs 36 µs per decision.
+
+## LLM providers
+
+The router's own log over every dev call, simulated providers with an 8% slow tail of +1.2 s
+(`reports/eval_dev.json`, calls in `data/calls.sqlite`):
+
+| | requests | first token p50 | p90 | p99 | max |
+|---|---:|---:|---:|---:|---:|
+| hedged after 450 ms (shipped) | 59 | 371 ms | 788 ms | 959 ms | 1,048 ms |
+| no hedging | 59 | 375 ms | 944 ms | 1,818 ms | 2,053 ms |
+
+Hedging halves the tail and leaves the median alone. On caller-side reply times the dev set has
+too few slow requests (about 4 of 50 replies) for the difference to be significant.
